@@ -1,4 +1,4 @@
 MysteryMod
 ==========
 
-The beginning of my adventures in modding Minecraft.
+The beginning of my adventures in Minecraft modding.
