@@ -1,0 +1,61 @@
+package com.wiiv.example.blocks;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import example.tabs.TabsWIIV;
+import example.tileentities.TileEntityChandelier;
+
+public class BlockChandelier extends BlockContainer{
+
+	public BlockChandelier(int id) {
+		super(id, Material.iron);
+			
+		setCreativeTab(TabsWIIV.tabBlocks);
+		setHardness(2F);
+		setStepSound(Block.soundMetalFootstep);
+		setUnlocalizedName(BlockInfo.UNLOCALIZED_CHANDELIER_NAME);
+			
+		setBlockBounds(0.0F, 1.0F / 16.0F*2.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister register) {
+		blockIcon = register.registerIcon(BlockInfo.TEXTURE_LOCATION + ":" + BlockInfo.CHANDELIER_TEXTURE);
+	}
+		
+	@Override
+	public TileEntity createNewTileEntity(World world) {
+			
+		return new TileEntityChandelier();
+	}
+		
+	public int getRenderType() {
+			
+		return -1;
+	}
+		
+	public boolean isOpaqueCube() {
+			
+		return false;
+	}
+		
+	public boolean renderAsNormalBlock() {
+			
+		return false;
+	}
+		
+	public TileEntity getBlockEntity() {
+			
+		return new TileEntityChandelier();
+	}
+
+}
+
+

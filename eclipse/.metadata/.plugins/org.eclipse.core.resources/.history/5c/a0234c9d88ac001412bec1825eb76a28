@@ -1,0 +1,11 @@
+package com.wiiv.mysterymod;
+
+public class ModInformation {
+	
+	public static final String ID = "wiiv_example";
+	public static final String NAME = "wiiv's example";
+	public static final String VERSION = "0.0.1";
+	public static final String CHANNEL = "wiiv_0";
+	
+
+}

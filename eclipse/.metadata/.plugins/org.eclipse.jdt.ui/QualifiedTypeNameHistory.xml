@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="example.tileentities.TileEntityAlembic"/>
+<fullyQualifiedTypeName name="example.tabs.TabsWIIV"/>
+<fullyQualifiedTypeName name="example.ModInformation"/>
+<fullyQualifiedTypeName name="example.tabs.TabsInfo"/>
+<fullyQualifiedTypeName name="example.config.ConfigHandler"/>
+<fullyQualifiedTypeName name="example.tileentities.TileEntityBomb"/>
+<fullyQualifiedTypeName name="example.tileentities.TileEntityChandelier"/>
+<fullyQualifiedTypeName name="example.tileentities.TileEntityMachine"/>
+<fullyQualifiedTypeName name="example.blocks.BlockInfo"/>
+<fullyQualifiedTypeName name="example.client.sound.Sounds"/>
+</qualifiedTypeNameHistroy>

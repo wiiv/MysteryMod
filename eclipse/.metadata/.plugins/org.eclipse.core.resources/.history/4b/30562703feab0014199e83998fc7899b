@@ -1,0 +1,21 @@
+[
+{
+  "modid": "mysteryMod",
+  "name": "Mystery",
+  "description": "It all started with Sheep",
+  "version": "1.0",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "pahimar"
+  ],
+  "credits": "To all my Patrons, I love you!",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]

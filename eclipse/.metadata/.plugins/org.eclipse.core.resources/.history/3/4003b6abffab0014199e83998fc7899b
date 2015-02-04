@@ -1,0 +1,11 @@
+package com.wiiv.example.tabs;
+
+import net.minecraft.creativetab.CreativeTabs;
+import example.ModInformation;
+
+public class TabsWIIV {
+	
+	public static CreativeTabs tabItems = new TabItems(CreativeTabs.getNextID(), ModInformation.NAME);
+	public static CreativeTabs tabBlocks = new TabBlocks(CreativeTabs.getNextID(), ModInformation.NAME);
+	public static CreativeTabs tabMiscellaneous = new TabMisc(CreativeTabs.getNextID(), ModInformation.NAME);
+}

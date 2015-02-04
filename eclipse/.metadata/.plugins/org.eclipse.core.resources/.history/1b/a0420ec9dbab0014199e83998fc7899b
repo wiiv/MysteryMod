@@ -1,0 +1,32 @@
+package com.wiiv.mysterymod;
+
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+
+
+@Mod(modid = "mysteryMod", name = "Mystery Mod", version = "1.7.10-1.0")
+
+public class mysteryMod 
+{
+	@Mod.Instance("mysteryMod")
+	public static mysteryMod instance;
+	
+
+	@Mod.EventHandler
+	public void preInit(FMLPreInitializationEvent event)
+	{
+		//items, blocks
+	}
+	
+	public void init(FMLInitializationEvent event)
+	{
+		//guis, tes, recipes
+	}
+	
+	public void postInit(FMLPostInitializationEvent event)
+	{
+		//after other mods
+	}
+}
