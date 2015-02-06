@@ -10,4 +10,11 @@
 <fullyQualifiedTypeName name="example.tileentities.TileEntityMachine"/>
 <fullyQualifiedTypeName name="example.blocks.BlockInfo"/>
 <fullyQualifiedTypeName name="example.client.sound.Sounds"/>
+<fullyQualifiedTypeName name="com.wiiv.mysterymod.proxy.IProxy"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.SidedProxy"/>
+<fullyQualifiedTypeName name="com.wiiv.mysterymod.reference.Reference"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.Mod"/>
+<fullyQualifiedTypeName name="net.minecraftforge.common.config.Configuration"/>
+<fullyQualifiedTypeName name="com.wiiv.mysterymod.reference.Blocks"/>
+<fullyQualifiedTypeName name="config.ConfigHandler"/>
 </qualifiedTypeNameHistroy>
