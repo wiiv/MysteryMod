@@ -1,5 +1,0 @@
-package com.wiiv.mysterymod.proxy;
-
-public class CommonProxy implements IProxy{
-
-}

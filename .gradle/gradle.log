@@ -5,13 +5,33 @@
  R4wk, ZeuX, IngisKahn, bspkrs
  MCP Data version : unknown
 ****************************
-:eclipseClasspath
-Download https://libraries.minecraft.net/net/minecraft/launchwrapper/1.11/launchwrapper-1.11-sources.jar
-Download http://repo1.maven.org/maven2/org/ow2/asm/asm-debug-all/5.0.3/asm-debug-all-5.0.3-sources.jar
-:eclipseJdt
-:eclipseProject
-:eclipse
+:extractMcpData
+:getVersionJson
+:extractUserDev
+:genSrgs SKIPPED
+:extractNatives
+:copyNativesLegacy
+:getAssetsIndex
+:getAssets
+:makeStart
+ Corrupted Cache!
+:downloadMcpTools SKIPPED
+:downloadClient SKIPPED
+:downloadServer SKIPPED
+:mergeJars SKIPPED
+:deobfuscateJar SKIPPED
+:decompile SKIPPED
+:processSources
+ Corrupted Cache!
+Injecting fml files
+Applying fml patches
+Applying forge patches
+:remapJar SKIPPED
+:extractMinecraftSrc SKIPPED
+:recompMinecraft SKIPPED
+:repackMinecraft SKIPPED
+:setupDecompWorkspace
 
 BUILD SUCCESSFUL
 
-Total time: 26.744 secs
+Total time: 1 mins 47.635 secs
