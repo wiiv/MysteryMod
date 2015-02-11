@@ -10,11 +10,23 @@
 <fullyQualifiedTypeName name="example.tileentities.TileEntityMachine"/>
 <fullyQualifiedTypeName name="example.blocks.BlockInfo"/>
 <fullyQualifiedTypeName name="example.client.sound.Sounds"/>
-<fullyQualifiedTypeName name="com.wiiv.mysterymod.proxy.IProxy"/>
-<fullyQualifiedTypeName name="cpw.mods.fml.common.SidedProxy"/>
 <fullyQualifiedTypeName name="com.wiiv.mysterymod.reference.Reference"/>
-<fullyQualifiedTypeName name="cpw.mods.fml.common.Mod"/>
-<fullyQualifiedTypeName name="net.minecraftforge.common.config.Configuration"/>
 <fullyQualifiedTypeName name="com.wiiv.mysterymod.reference.Blocks"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.SidedProxy"/>
+<fullyQualifiedTypeName name="com.wiiv.mysterymod.reference.References"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.Mod"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.event.FMLInitializationEvent"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.event.FMLPreInitializationEvent"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.event.FMLPostInitializationEvent"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.client.event.ConfigChangedEvent"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.eventhandler.SubscribeEvent"/>
 <fullyQualifiedTypeName name="config.ConfigHandler"/>
+<fullyQualifiedTypeName name="net.minecraftforge.common.config.Configuration"/>
+<fullyQualifiedTypeName name="com.wiiv.mysterymod.reference.Core"/>
+<fullyQualifiedTypeName name="com.wiiv.mysterymod.reference.CoreReferences"/>
+<fullyQualifiedTypeName name="com.wiiv.mysterymod.proxy.IProxy"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.common.FMLCommonHandler"/>
+<fullyQualifiedTypeName name="config.ConfigurationHandler"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="cpw.mods.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent"/>
 </qualifiedTypeNameHistroy>
