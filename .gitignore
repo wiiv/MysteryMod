@@ -8,8 +8,15 @@ Thumbs.db
 /run
 
 ## eclipse
+
+/eclipse
 /.settings
 /.metadata
+/config
+/logs
+/mods
+/resourcepacks
+/saves
 /.classpath
 /.project
 /bin
