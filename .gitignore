@@ -1,4 +1,41 @@
-/bin/
-/eclipse/
-/.gradle/
-/.settings/
+Thumbs.db
+
+## gradle
+/.gradle
+/build
+
+## ForgeGradle
+/run
+
+## eclipse
+/.settings
+/.metadata
+/.classpath
+/.project
+/bin
+
+## intellij
+/out
+/.idea
+/atlassian-ide-plugin.xml
+
+## Private Stuffs
+/private.properties
+
+## Jars
+*.jar
+!/gradle/wrapper/gradle-wrapper.jar
+*.log
+*.log
+*.gz
+*.txt
+*.xml
+*.index
+*.index
+*.history
+*.log
+*.log
+*.tree
+*.prefs
+*.xmi
+*.index

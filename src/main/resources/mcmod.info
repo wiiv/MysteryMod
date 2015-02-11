@@ -1,21 +1,17 @@
 [
 {
-  "modid": "mysteryMod",
+  "modid": "mystery",
   "name": "Mystery",
-  "description": "It all started with Sheep",
-  "version": "1.0",
-  "mcversion": "1.7.10",
+  "description": "Animals Rebooted",
+  "version": "1.7.10",
+  "mcversion": "0.0.1",
+  "logoFile": "",
   "url": "",
   "updateUrl": "",
-  "authorList": [
-    "wiiv"
-  ],
-  "credits": "To all my Patrons, I love you!",
-  "logoFile": "",
-  "screenshots": [
-  ],
-  "parent":"",
-  "dependencies": [
-  ]
+  "authors": "wiiv",
+  "credits": "",
+  "parent": "",
+  "screenshots": [],
+  "dependencies": []
 }
 ]
