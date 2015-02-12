@@ -1,26 +1,39 @@
-Thumbs.db
+#eclipse
+.project
+.classpath
+.metadata
+org.*
+bin
 
-## gradle
-/.gradle
-/build
+#idea
+.idea
+*.iml
+*.ipr
+*.iws
+out
 
-## ForgeGradle
-/run
+#gradle
+build
+.gradle
 
-## eclipse
+#runtime
+eclipse
+run
 
-.eclipse/
-/.settings
-/.metadata
-/config
-/logs
-/mods
-/resourcepacks
-/saves
-/.classpath
-/.project
-/bin
+#mac
+.DS_Store
+*.command
 
-## Jars
-*.jar
-!/gradle/wrapper/gradle-wrapper.jar
+#workspace
+saves
+asm
+config
+logs
+screenshots
+mods
+world
+
+*.txt
+*.json
+/server.properties
+*.dat
