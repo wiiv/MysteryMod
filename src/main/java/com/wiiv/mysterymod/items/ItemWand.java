@@ -1,0 +1,116 @@
+package com.wiiv.mysterymod.items;
+
+import java.util.List;
+
+import com.wiiv.mysterymod.reference.ItemsMM;
+import com.wiiv.mysterymod.reference.Sounds;
+
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+//import example.client.sound.Sounds;
+//import example.entities.EntitySpaceship;
+//import example.tabs.TabsWIIV;
+
+public class ItemWand extends ItemMMGeneric {
+	
+	@SideOnly(Side.CLIENT)
+	private IIcon chargedIcon;
+
+	public ItemWand() {
+		super();
+		//setCreativeTab(TabsWIIV.tabItems);
+		setCreativeTab(CreativeTabs.tabMisc);
+		setMaxStackSize(1);
+		setUnlocalizedName(ItemsMM.UNLOCALIZED_WAND_NAME);
+	}
+	
+	@Override
+	public boolean itemInteractionForEntity(ItemStack itemStack, EntityPlayer player, EntityLivingBase target){
+		
+		if(!target.worldObj.isRemote){
+		target.motionY = 2;
+		
+			if (isCharged(itemStack.getItemDamage())){
+				target.motionX = (target.posX - player.posX) * 2;
+				target.motionZ = (target.posZ - player.posZ) * 2;
+				
+				itemStack.setItemDamage(0);
+				Sounds.WAND_USE.play(target.posX, target.posY, target.posZ, 1, 4);
+				
+			}else{
+				itemStack.setItemDamage(itemStack.getItemDamage() + 1);
+			}
+			Sounds.WAND_USE.play(target.posX, target.posY, target.posZ, 1, 0);
+		}	
+		
+		return false;
+	}
+	
+	@Override	
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IIconRegister register){
+		itemIcon = register.registerIcon(ItemsMM.TEXTURE_LOCATION + ":" + ItemsMM.WAND_ICON);
+		chargedIcon = register.registerIcon(ItemsMM.TEXTURE_LOCATION + ":" + ItemsMM.WAND_CHARGED_ICON);
+		
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack itemstack, EntityPlayer player, List info, boolean useExtraInformation){
+		info.add("this has been used " + itemstack.getItemDamage() + " times");
+		
+		if (isCharged(itemstack.getItemDamage())) {
+			info.add("this item is charged");
+		}
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIconFromDamage(int dmg){
+		if (isCharged(dmg)){
+			return chargedIcon;
+		}else{
+			return itemIcon;
+		}
+	}
+	
+	private boolean isCharged(int dmg){
+		return dmg >= 10;
+	}
+	/*
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean onItemUseFirst(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ){
+		if(!world.isRemote && player.isSneaking()) {
+			
+			EntitySpaceship ship = new EntitySpaceship(world);
+			
+			if(side == 1) {
+				ship.posX = x + 0.5F;
+				ship.posY = y + 1.5F;
+				ship.posZ = z + 0.5F;
+				
+				if(isCharged(itemstack.getItemDamage())) {
+					ship.setCharged();
+					
+					itemstack.setItemDamage(0);
+				}else{
+					itemstack.setItemDamage(itemstack.getItemDamage() + 1);
+					}
+				world.spawnEntityInWorld(ship);
+			}
+			return true;
+			
+		}else{ 
+			return false;
+		}
+	}*/
+}

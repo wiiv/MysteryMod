@@ -1,6 +1,7 @@
 package com.wiiv.mysterymod;
 
 import com.wiiv.mysterymod.handler.ConfigurationHandler;
+import com.wiiv.mysterymod.init.ItemsMMInit;
 import com.wiiv.mysterymod.proxy.IProxy;
 import com.wiiv.mysterymod.reference.CoreReferences;
 
@@ -30,6 +31,8 @@ public class mysteryMod {
 		//configuration, items, blocks
 		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 		FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+		
+		ItemsMMInit.init();
 	}
 	
 	public void init(FMLInitializationEvent event){

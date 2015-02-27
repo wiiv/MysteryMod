@@ -1,6 +1,6 @@
 package com.wiiv.mysterymod.reference;
 
-public class Blocks {
+public class BlocksMM {
 public static final String TEXTURE_LOCATION = "example";
 	
 	//

@@ -16,7 +16,8 @@ public class CoreGuiConfig extends GuiConfig{
 	public CoreGuiConfig(GuiScreen parentScreen){
 		
 		super(parentScreen, 
-				new ConfigElement(ConfigurationHandler.configuration.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), CoreReferences.MOD_ID, 
+				new ConfigElement(ConfigurationHandler.configuration.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), 
+				CoreReferences.MOD_ID, 
 				false,
 				false, 
 				GuiConfig.getAbridgedConfigPath(ConfigurationHandler.configuration.toString()));
