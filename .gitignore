@@ -1,6 +1,4 @@
 /eclipse
-/eclipse/logs
-/eclipse/config
 /.gradle
 .gradle
 *.bat
