@@ -1,4 +1,5 @@
 /eclipse
+/gradle
 /.gradle
 .gradle
 *.bat
