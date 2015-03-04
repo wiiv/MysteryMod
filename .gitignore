@@ -1,6 +1,9 @@
 /eclipse
-/eclipse/.*
+/eclipse/logs
+/eclipse/config
+/.gradle
 .gradle
+*.bat
 .project
 .settings
 /src2
