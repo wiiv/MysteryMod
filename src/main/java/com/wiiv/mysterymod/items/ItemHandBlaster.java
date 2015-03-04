@@ -1,6 +1,7 @@
 package com.wiiv.mysterymod.items;
 
 import com.wiiv.mysterymod.reference.ItemsMM;
+import com.wiiv.mysterymod.tabs.TabsMMGeneric;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -12,7 +13,7 @@ public class ItemHandBlaster extends ItemMMGeneric{
 
 	public ItemHandBlaster() {
 		super();
-		//setCreativeTab(TabsWIIV.tabMiscellaneous);
+		setCreativeTab(TabsMMGeneric.tabMiscellaneous);
 		setMaxStackSize(16);
 		setUnlocalizedName(ItemsMM.UNLOCALIZED_HANDBLASTER_NAME);
 	}

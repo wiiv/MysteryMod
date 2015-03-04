@@ -3,6 +3,7 @@ package com.wiiv.mysterymod.items;
 import java.util.List;
 
 import com.wiiv.mysterymod.reference.ItemsMM;
+import com.wiiv.mysterymod.tabs.TabsMMGeneric;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -26,10 +27,13 @@ public class ItemDeathstone extends ItemMMGeneric {
 	private IIcon[] icons;
 	
 	public ItemDeathstone() {
+		
 		super();
-		setCreativeTab(CreativeTabs.tabRedstone);
+		
+		setCreativeTab(TabsMMGeneric.tabMiscellaneous);
+		setUnlocalizedName(ItemsMM.UNLOCALIZED_DEATHSTONE_NAME);
 		setHasSubtypes(true);
-		this.setUnlocalizedName(ItemsMM.UNLOCALIZED_DEATHSTONE_NAME);
+		setMaxDamage(0);
 	}
 	
 	
@@ -39,7 +43,6 @@ public class ItemDeathstone extends ItemMMGeneric {
     }
 	
 	public boolean hitEntity(ItemStack itemstack, EntityLivingBase target, EntityLivingBase targetEntity){
-		
 		
 		int meta = itemstack.getItemDamage();
 		
@@ -62,7 +65,22 @@ public class ItemDeathstone extends ItemMMGeneric {
 	
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack){
-		return ItemsMM.UNLOCALIZED_DEATHSTONE_NAME + itemstack.getItemDamage();
+	
+		switch (itemstack.getItemDamage()) {
+		
+	    case 0:
+	        return getUnlocalizedName() + ItemsMM.UNLOCALIZED_DEATHSTONE_NAMES[0];
+	    case 1:
+	        return getUnlocalizedName() + ItemsMM.UNLOCALIZED_DEATHSTONE_NAMES[1];
+	    case 2:
+	        return getUnlocalizedName() + ItemsMM.UNLOCALIZED_DEATHSTONE_NAMES[2];
+	    case 3:
+	        return getUnlocalizedName() + ItemsMM.UNLOCALIZED_DEATHSTONE_NAMES[3];
+	    case 4:
+	        return getUnlocalizedName() + ItemsMM.UNLOCALIZED_DEATHSTONE_NAMES[4];
+	    default:
+	    	return ItemsMM.UNLOCALIZED_DEATHSTONE_NAME;
+		}
 	}
 	
 	@Override
@@ -81,15 +99,32 @@ public class ItemDeathstone extends ItemMMGeneric {
 		return icons[dmg];	
 	}
 	
-	/*@Override
+	@Override
 	@SideOnly(Side.CLIENT)
-	public void getSubItems(int id, CreativeTabs tab, List list) {
+	public void getSubItems(Item id, CreativeTabs tab, List list) {
 		
-		for (int i = 0; i < ItemsMM.DEATHSTONE_NAMES.length; i++) {
-			ItemStack stack = new ItemStack(id, 1, i);
-			list.add(stack);
+		for (int i = 0; i < ItemsMM.UNLOCALIZED_DEATHSTONE_NAMES.length; i++) {
+			list.add(new ItemStack(this, 1, i));
 		}
-	}*/
+	}
+	
+	@Override
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+		
+		if(entityplayer.isSneaking()) {
+			
+			int dmg = itemstack.getItemDamage() + 1;
+			
+			if(dmg == 5) {
+				itemstack.setItemDamage(0); 
+				world.playSoundAtEntity(entityplayer, "step.stone", 0.4F, 0.8F);
+			}else {
+				itemstack.setItemDamage(dmg);
+				world.playSoundAtEntity(entityplayer, "step.stone", 0.2F, 0.4F);
+			}
+		}
+		return itemstack;
+	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -98,12 +133,11 @@ public class ItemDeathstone extends ItemMMGeneric {
 		int dmg = itemstack.getItemDamage();
 		
 		if (dmg == 4) {
-		info.add("to get " + ItemsMM.DEATHSTONE_NAMES[0] + " put this in a crafting area");
+		info.add("To get " + ItemsMM.UNLOCALIZED_DEATHSTONE_NAMES[0] + "Death Stone");
+		info.add("place this in a crafting area.");
 		}else{
-			info.add("to get " + ItemsMM.DEATHSTONE_NAMES[dmg + 1] + " put this in a crafting area");
+			info.add("To get " + ItemsMM.UNLOCALIZED_DEATHSTONE_NAMES[dmg + 1] + " Death Stone");
+			info.add("place this in a crafting area.");
 		}
 	}
-	
-	
-
 }

@@ -1,6 +1,7 @@
 package com.wiiv.mysterymod.items;
 
 import com.wiiv.mysterymod.reference.ItemsMM;
+import com.wiiv.mysterymod.tabs.TabsMMGeneric;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,7 +17,7 @@ public class ItemDroid extends ItemMMGeneric{
 	
 	public ItemDroid(){
 		super();
-		//setCreativeTab(TabsWIIV.tabMiscellaneous);
+		setCreativeTab(TabsMMGeneric.tabMiscellaneous);
 		setMaxStackSize(16);
 		setUnlocalizedName(ItemsMM.UNLOCALIZED_DROID_NAME);
 	}

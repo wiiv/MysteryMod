@@ -7,12 +7,12 @@ public class ClientProxy extends CommonProxy{
 	
 	@Override
 	public void initSounds() {
-		new SoundHandler(null, null);
+		//new SoundHandler(null, null);
 	}
 	
 	@Override
 	public void initRenderers() {
-		RenderingRegistry.registerEntityRenderingHandler(EntitySpaceship.class, new RenderSpaceship());
+		/*RenderingRegistry.registerEntityRenderingHandler(EntitySpaceship.class, new RenderSpaceship());
 		
 		ModelDroid model = new ModelDroid();
 		RenderingRegistry.registerEntityRenderingHandler(EntityDroid.class, new RenderDroid(model));
@@ -34,7 +34,7 @@ public class ClientProxy extends CommonProxy{
 		
 		//chandelier te
 		RenderChandelierTileEntity chandelierRender =  new RenderChandelierTileEntity();
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChandelier.class, chandelierRender);
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChandelier.class, chandelierRender);*/
 	}
 
 }

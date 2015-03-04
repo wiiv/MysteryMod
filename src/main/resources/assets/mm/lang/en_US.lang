@@ -1,0 +1,30 @@
+#Blocks
+tile.mystery:sillyMachine.name=Silly Machinery
+tile.mystery:rainbow.name=Rainbow
+tile.mystery:chandelier.name=Chandelier
+tile.mystery:rotational.name=Rotational
+tile.mystery:weirdBomb.name=Weird Bomb
+tile.mystery:poisonBlock.name=Block of Poison
+tile.mystery:alembic.name=Alembic
+tile.mystery:urn.name=Urn
+
+#Items
+item.mystery:prism.name=Prism
+item.mystery:propellerWand.name=Propeller Wand
+
+item.mystery:symbolCardBlank.name=Blank Card
+item.mystery:symbolCardArrow.name=Arrow Card
+item.mystery:symbolCardBox.name=Box Card
+item.mystery:symbolCardCross.name=Cross Card
+item.mystery:symbolCardCustom.name=Custom Card
+
+item.mystery:deathStonePlayer.name=Player Death Stone
+item.mystery:deathStoneCreeper.name=Creeper Death Stone
+item.mystery:deathStoneEnderman.name=Enderman Death Stone
+item.mystery:deathStoneZombiePigman.name=Zombie Pigman Death Stone
+item.mystery:deathStoneSkeleton.name=Skeleton Death Stone
+
+#Creative Tabs
+itemGroup.wiiv's items=Wiiv's Items
+itemGroup.wiiv's blocks=Wiiv's Blocks
+itemGroup.wiiv's miscellaneous=Wiiv's Miscellaneous

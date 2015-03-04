@@ -2,8 +2,8 @@ package com.wiiv.mysterymod.items;
 
 import java.util.List;
 
+import com.wiiv.mysterymod.entities.EntitySpaceship;
 import com.wiiv.mysterymod.reference.ItemsMM;
-import com.wiiv.mysterymod.reference.Sounds;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,7 +15,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-//import example.client.sound.Sounds;
 //import example.entities.EntitySpaceship;
 //import example.tabs.TabsWIIV;
 
@@ -30,25 +29,27 @@ public class ItemWand extends ItemMMGeneric {
 		setCreativeTab(CreativeTabs.tabMisc);
 		setMaxStackSize(1);
 		setUnlocalizedName(ItemsMM.UNLOCALIZED_WAND_NAME);
+		setMaxDamage(10);
 	}
 	
 	@Override
 	public boolean itemInteractionForEntity(ItemStack itemStack, EntityPlayer player, EntityLivingBase target){
 		
 		if(!target.worldObj.isRemote){
-		target.motionY = 2;
+			
+			target.motionY = 2;
 		
 			if (isCharged(itemStack.getItemDamage())){
 				target.motionX = (target.posX - player.posX) * 2;
 				target.motionZ = (target.posZ - player.posZ) * 2;
 				
 				itemStack.setItemDamage(0);
-				Sounds.WAND_USE.play(target.posX, target.posY, target.posZ, 1, 4);
+				player.worldObj.playSoundAtEntity(target, "example:wand", 0.4F, 0.8F);
 				
 			}else{
 				itemStack.setItemDamage(itemStack.getItemDamage() + 1);
+				player.worldObj.playSoundAtEntity(target, "example:wand", 0.2F, 0.4F);
 			}
-			Sounds.WAND_USE.play(target.posX, target.posY, target.posZ, 1, 0);
 		}	
 		
 		return false;
@@ -83,8 +84,14 @@ public class ItemWand extends ItemMMGeneric {
 	}
 	
 	private boolean isCharged(int dmg){
-		return dmg >= 10;
+		return dmg <= 10;
 	}
+	
+	@Override
+	public boolean isFull3D() {
+		return true;
+	}
+	
 	/*
 	@Override
 	@SideOnly(Side.CLIENT)

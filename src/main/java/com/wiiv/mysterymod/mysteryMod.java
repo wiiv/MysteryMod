@@ -1,7 +1,12 @@
 package com.wiiv.mysterymod;
 
 import com.wiiv.mysterymod.handler.ConfigurationHandler;
+import com.wiiv.mysterymod.handler.GuiHandler;
+import com.wiiv.mysterymod.init.BlocksMMInit;
+import com.wiiv.mysterymod.init.EntitiesMMInit;
 import com.wiiv.mysterymod.init.ItemsMMInit;
+import com.wiiv.mysterymod.init.RecipesMMInit;
+import com.wiiv.mysterymod.init.TilesMMInit;
 import com.wiiv.mysterymod.proxy.IProxy;
 import com.wiiv.mysterymod.reference.CoreReferences;
 
@@ -33,13 +38,21 @@ public class mysteryMod {
 		FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 		
 		ItemsMMInit.init();
+		BlocksMMInit.init();
 	}
 	
+	@Mod.EventHandler
 	public void init(FMLInitializationEvent event){
 		
-		//guis, tes, recipes
+		//guis, tes, entities, recipes
+		EntitiesMMInit.init();
+		RecipesMMInit.init();
+		
+		TilesMMInit.init();
+		new GuiHandler();
 	}
 	
+	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event){
 		
 		//after other mods

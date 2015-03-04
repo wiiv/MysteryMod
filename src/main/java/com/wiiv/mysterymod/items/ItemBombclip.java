@@ -4,9 +4,8 @@ import net.minecraft.item.Item;
 
 public class ItemBombclip extends Item{
 
-	public ItemBombclip(int id) {
+	public ItemBombclip(){
+		
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
 }
