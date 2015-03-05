@@ -1,6 +1,7 @@
 package com.wiiv.mysterymod;
 
 import com.wiiv.mysterymod.handler.ConfigurationHandler;
+import com.wiiv.mysterymod.handler.GenerationHandler;
 import com.wiiv.mysterymod.handler.GuiHandler;
 import com.wiiv.mysterymod.init.BlocksMMInit;
 import com.wiiv.mysterymod.init.EntitiesMMInit;
@@ -39,6 +40,8 @@ public class mysteryMod {
 		
 		ItemsMMInit.init();
 		BlocksMMInit.init();
+		
+		new GenerationHandler();
 	}
 	
 	@Mod.EventHandler
@@ -46,9 +49,10 @@ public class mysteryMod {
 		
 		//guis, tes, entities, recipes
 		EntitiesMMInit.init();
+		TilesMMInit.init();
+		
 		RecipesMMInit.init();
 		
-		TilesMMInit.init();
 		new GuiHandler();
 	}
 	

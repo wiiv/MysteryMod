@@ -14,10 +14,10 @@ import com.wiiv.mysterymod.tileentities.TileEntityBomb;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBomb extends BlockMMGeneric{
+public class BlockBomb extends BlockMMGeneric {
 	
-	public BlockBomb(){
-		
+	public BlockBomb() {
+	
 		super(Material.iron);
 		
 		setBlockName(BlocksMM.UNLOCALIZED_BOMB_NAME);
@@ -35,38 +35,49 @@ public class BlockBomb extends BlockMMGeneric{
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
+	
 		blockIcon = register.registerIcon(BlocksMM.TEXTURE_LOCATION + ":" + BlocksMM.BOMB_TEXTURE + BlocksMM.BOMB_TEXTURE_STATES[0]);
-		activestateIcons = new IIcon[BlocksMM.BOMB_TEXTURE_ACTIVE_STAGES.length];	
-		for (int i = 0; i < activestateIcons.length; i++){
+		activestateIcons = new IIcon[BlocksMM.BOMB_TEXTURE_ACTIVE_STAGES.length];
+		for (int i = 0; i < activestateIcons.length; i++) {
 			activestateIcons[i] = register.registerIcon(BlocksMM.TEXTURE_LOCATION + ":" + BlocksMM.BOMB_TEXTURE + BlocksMM.BOMB_TEXTURE_STATES[1] + BlocksMM.BOMB_TEXTURE_ACTIVE_STAGES[i]);
-			}
-		idleIcon = register.registerIcon(BlocksMM.TEXTURE_LOCATION + ":" + BlocksMM.BOMB_TEXTURE + BlocksMM.BOMB_TEXTURE_STATES[0]);
+		}
+		idleIcon = register.registerIcon(BlocksMM.TEXTURE_LOCATION + ":"
+				+ BlocksMM.BOMB_TEXTURE + BlocksMM.BOMB_TEXTURE_STATES[0]);
 	}
+	
+	
 	/*
 	@Override
-	@SideOnly(Side.CLIENT)
-	public Icon getBlockTexture(IBlockAccess world, int x, int y, int z, int side){
-		TileEntityBomb bomb = (TileEntityBomb)world.getTileEntity(x, y, z);
-		return bomb.isIdle() ? stateIcons[0] : stateIcons[1];
+	@SideOnly(Side.CLIENT) 
+	public IIcon getBlockTexture(IBlockAccess world, int x, int y, int z, int side){ 
+		
+		TileEntityBomb bomb = (TileEntityBomb)world.getTileEntity(x, y, z); 
+		
+		return bomb.isIdle() ? activestateIcons[0] : activestateIcons[1]; 
 	}
 	*/
+	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int meta){
-		if(meta == 1) {
+	public IIcon getIcon(int side, int meta) {
+	
+		if (meta == 1) {
 			return activestateIcons[0];
-		}else if(meta == 2) {
+		}
+		else if (meta == 2) {
 			return activestateIcons[1];
-		}else if(meta == 3) {
+		}
+		else if (meta == 3) {
 			return activestateIcons[2];
-		}else
-			return blockIcon;	
-		//return meta == 0 ?  blockIcon : idleIcon; 
+		}
+		else return blockIcon;
+		// return meta == 0 ? blockIcon : idleIcon;
 	}
 	
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
+	
 		return new TileEntityBomb();
 	}
-
+	
 }

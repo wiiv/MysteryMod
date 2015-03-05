@@ -1,7 +1,6 @@
 package com.wiiv.mysterymod.init;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
 
 import com.wiiv.mysterymod.blocks.BlockAlembic;
 import com.wiiv.mysterymod.blocks.BlockBomb;
@@ -10,16 +9,10 @@ import com.wiiv.mysterymod.blocks.BlockMachine;
 import com.wiiv.mysterymod.blocks.BlockPoison;
 import com.wiiv.mysterymod.blocks.BlockRainbow;
 import com.wiiv.mysterymod.blocks.BlockRotational;
-import com.wiiv.mysterymod.blocks.BlockUrn;
+import com.wiiv.mysterymod.blocks.BlockSalt;
 import com.wiiv.mysterymod.reference.BlocksMM;
-import com.wiiv.mysterymod.tileentities.TileEntityAlembic;
-import com.wiiv.mysterymod.tileentities.TileEntityBomb;
-import com.wiiv.mysterymod.tileentities.TileEntityChandelier;
-import com.wiiv.mysterymod.tileentities.TileEntityMachine;
-import com.wiiv.mysterymod.tileentities.TileEntityRotational;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BlocksMMInit {
 	
@@ -31,6 +24,7 @@ public class BlocksMMInit {
 	public static Block alembic = new BlockAlembic();;
 	public static Block chandelier = new BlockChandelier();;
 	//public static Block urn = new BlockUrn();
+	public static Block rocksalt = new BlockSalt();;
 	
 	public static void init() {
  
@@ -42,5 +36,6 @@ public class BlocksMMInit {
 		GameRegistry.registerBlock(alembic, BlocksMM.UNLOCALIZED_ALEMBIC_NAME);
 		GameRegistry.registerBlock(chandelier, BlocksMM.UNLOCALIZED_CHANDELIER_NAME);
 		//urn;
+		GameRegistry.registerBlock(rocksalt, BlocksMM.UNLOCALIZED_SALT_NAME);
 	}
 }

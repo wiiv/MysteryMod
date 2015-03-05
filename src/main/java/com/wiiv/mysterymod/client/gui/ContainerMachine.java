@@ -2,9 +2,6 @@ package com.wiiv.mysterymod.client.gui;
 
 import java.util.Arrays;
 
-import com.wiiv.mysterymod.tileentities.TileEntityMachine;
-
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
@@ -12,6 +9,9 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+
+import com.wiiv.mysterymod.tileentities.TileEntityMachine;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -84,6 +84,7 @@ public class ContainerMachine extends Container{
 	//synchronize buttons with each client
 	//sends
 	
+	@Override
 	public void addCraftingToCrafters(ICrafting player) {
 		super.addCraftingToCrafters(player);
 		

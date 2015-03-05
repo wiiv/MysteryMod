@@ -1,17 +1,16 @@
 package com.wiiv.mysterymod.items;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+
+import com.wiiv.mysterymod.entities.EntityDroid;
 import com.wiiv.mysterymod.reference.ItemsMM;
 import com.wiiv.mysterymod.tabs.TabsMMGeneric;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-//import example.entities.EntityDroid;
-//import example.tabs.TabsWIIV;
 
 public class ItemDroid extends ItemMMGeneric{
 	
@@ -34,7 +33,7 @@ public class ItemDroid extends ItemMMGeneric{
 		
 		if(!world.isRemote && player.isSneaking()) {
 			
-			//world.spawnEntityInWorld(new EntityDroid(world, x + 0.5F, y + 1.5F, z + 0.5F));
+			world.spawnEntityInWorld(new EntityDroid(world, x + 0.5F, y + 1.5F, z + 0.5F));
 			
 			itemstack.stackSize--;
 			

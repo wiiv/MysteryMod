@@ -3,7 +3,6 @@ package com.wiiv.mysterymod.items;
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -12,6 +11,7 @@ import net.minecraft.world.World;
 import com.wiiv.mysterymod.init.BlocksMMInit;
 import com.wiiv.mysterymod.reference.BlocksMM;
 import com.wiiv.mysterymod.reference.ItemsMM;
+import com.wiiv.mysterymod.tabs.TabsMMGeneric;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -31,7 +31,7 @@ public class ItemPrism extends ItemMMGeneric {
 	
 		super();
 		
-		setCreativeTab(CreativeTabs.tabMisc);
+		setCreativeTab(TabsMMGeneric.tabMiscellaneous);
 		setMaxStackSize(1);
 		setUnlocalizedName(ItemsMM.UNLOCALIZED_PRISM_NAME);
 		setHasSubtypes(true);

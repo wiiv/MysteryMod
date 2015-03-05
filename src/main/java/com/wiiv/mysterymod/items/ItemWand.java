@@ -2,21 +2,17 @@ package com.wiiv.mysterymod.items;
 
 import java.util.List;
 
-import com.wiiv.mysterymod.entities.EntitySpaceship;
-import com.wiiv.mysterymod.reference.ItemsMM;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
+
+import com.wiiv.mysterymod.reference.ItemsMM;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-//import example.entities.EntitySpaceship;
-//import example.tabs.TabsWIIV;
 
 public class ItemWand extends ItemMMGeneric {
 	
@@ -98,7 +94,7 @@ public class ItemWand extends ItemMMGeneric {
 	public boolean onItemUseFirst(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ){
 		if(!world.isRemote && player.isSneaking()) {
 			
-			EntitySpaceship ship = new EntitySpaceship(world);
+			EntitySpaceship ship = new EntitySpaceship();
 			
 			if(side == 1) {
 				ship.posX = x + 0.5F;
@@ -117,6 +113,7 @@ public class ItemWand extends ItemMMGeneric {
 			return true;
 			
 		}else{ 
+			
 			return false;
 		}
 	}*/
