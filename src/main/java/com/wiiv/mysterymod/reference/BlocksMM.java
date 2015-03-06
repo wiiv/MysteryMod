@@ -42,9 +42,11 @@ public class BlocksMM {
 	public static final String BOMB_TE_KEY = "bombTileEntity";
 	
 	//
-	public static final String UNLOCALIZED_POISON_NAME = "poisonBlock";
+	public static final String UNLOCALIZED_POISONORE_NAME = "poisonOre";
+	public static final String UNLOCALIZED_POISONBLOCK_NAME = "poisonBlock";
 	// textures
-	public static final String POISON_TEXTURE = "poison_block";
+	public static final String POISONORE_TEXTURE = "poison_ore";
+	public static final String POISONBLOCK_TEXTURE = "poison_block";
 	public static final String POISON_PARTICLE_TEXTURE = "poison_nocolor";
 	
 	//

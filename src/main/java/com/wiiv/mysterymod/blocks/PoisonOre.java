@@ -19,13 +19,13 @@ import com.wiiv.mysterymod.tabs.TabsMMGeneric;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockPoison extends BlockMMGeneric {
+public class PoisonOre extends BlockMMGeneric {
 	
-	public BlockPoison() {
+	public PoisonOre() {
 	
 		super(Material.rock);
 		
-		setBlockName(BlocksMM.UNLOCALIZED_POISON_NAME);
+		setBlockName(BlocksMM.UNLOCALIZED_POISONORE_NAME);
 		setCreativeTab(TabsMMGeneric.tabBlocks);
 		setHardness(1F);
 		setStepSound(Block.soundTypeGravel);
@@ -38,7 +38,7 @@ public class BlockPoison extends BlockMMGeneric {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
 	
-		blockIcon = register.registerIcon(BlocksMM.TEXTURE_LOCATION + ":" + BlocksMM.POISON_TEXTURE);
+		blockIcon = register.registerIcon(BlocksMM.TEXTURE_LOCATION + ":" + BlocksMM.POISONORE_TEXTURE);
 		particleIcon = register.registerIcon(BlocksMM.TEXTURE_LOCATION + ":" + BlocksMM.POISON_PARTICLE_TEXTURE);
 	}
 	

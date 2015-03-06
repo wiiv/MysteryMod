@@ -3,7 +3,7 @@ package com.wiiv.mysterymod.client.particles;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.world.World;
 
-import com.wiiv.mysterymod.blocks.BlockPoison;
+import com.wiiv.mysterymod.blocks.PoisonOre;
 
 public class EntityPoisonFX extends EntityFX{
 	
@@ -11,7 +11,7 @@ public class EntityPoisonFX extends EntityFX{
 	public EntityPoisonFX(World world, double x, double y, double z, double motionX, double motionY, double motionZ) {
 		super(world, x, y, z, motionX, motionY, motionZ);
 		
-		setParticleIcon(BlockPoison.particleIcon);
+		setParticleIcon(PoisonOre.particleIcon);
 		
 		particleScale = 2;
 		particleAlpha = rand.nextFloat();
