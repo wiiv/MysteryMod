@@ -1,5 +1,6 @@
 package com.wiiv.mysterymod;
 
+import com.wiiv.mysterymod.client.handler.KeyInputHandler;
 import com.wiiv.mysterymod.handler.ConfigurationHandler;
 import com.wiiv.mysterymod.handler.GenerationHandler;
 import com.wiiv.mysterymod.handler.GuiHandler;
@@ -9,7 +10,7 @@ import com.wiiv.mysterymod.init.ItemsMMInit;
 import com.wiiv.mysterymod.init.RecipesMMInit;
 import com.wiiv.mysterymod.init.TilesMMInit;
 import com.wiiv.mysterymod.proxy.IProxy;
-import com.wiiv.mysterymod.reference.CoreReferences;
+import com.wiiv.mysterymod.reference.Core;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -20,14 +21,14 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 
 
-@Mod(modid = CoreReferences.MOD_ID, name = CoreReferences.NAME, version = CoreReferences.VERSION, guiFactory = CoreReferences.GUI_FACTORY_CLASS)
+@Mod(modid = Core.MOD_ID, name = Core.NAME, version = Core.VERSION, guiFactory = Core.GUI_FACTORY_CLASS)
 
 public class mysteryMod {
 	
-	@Mod.Instance(CoreReferences.MOD_ID)
+	@Mod.Instance(Core.MOD_ID)
 	public static mysteryMod instance;
 	
-	@SidedProxy(clientSide = CoreReferences.CLIENT_PROXY_CLASS, serverSide = CoreReferences.SERVER_PROXY_CLASS)
+	@SidedProxy(clientSide = Core.CLIENT_PROXY_CLASS, serverSide = Core.SERVER_PROXY_CLASS)
 	public static IProxy proxy;
 	
 
@@ -42,12 +43,17 @@ public class mysteryMod {
 		BlocksMMInit.init();
 		
 		new GenerationHandler();
+		
+		proxy.initKeybindings();
+		proxy.initRenderers();
 	}
 	
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event){
 		
 		//guis, tes, entities, recipes
+		FMLCommonHandler.instance().bus().register(new KeyInputHandler());
+		
 		EntitiesMMInit.init();
 		TilesMMInit.init();
 		

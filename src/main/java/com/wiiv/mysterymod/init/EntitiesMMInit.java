@@ -1,9 +1,9 @@
 package com.wiiv.mysterymod.init;
 
 import com.wiiv.mysterymod.mysteryMod;
-import com.wiiv.mysterymod.entities.EntityBomb;
-import com.wiiv.mysterymod.entities.EntityDroid;
-import com.wiiv.mysterymod.entities.EntitySpaceship;
+import com.wiiv.mysterymod.entity.EntityBomb;
+import com.wiiv.mysterymod.entity.EntityDroid;
+import com.wiiv.mysterymod.entity.EntitySpaceship;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 

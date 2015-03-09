@@ -2,10 +2,7 @@ package com.wiiv.mysterymod.proxy;
 
 public abstract class CommonProxy implements IProxy{
 
-	public void initSounds(){
-		
-	}
-	
+	@Override
 	public void initRenderers(){
 		
 	}

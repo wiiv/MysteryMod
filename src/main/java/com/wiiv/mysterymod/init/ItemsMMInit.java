@@ -1,13 +1,13 @@
 package com.wiiv.mysterymod.init;
 
-import com.wiiv.mysterymod.items.ItemCard;
-import com.wiiv.mysterymod.items.ItemDeathstone;
-import com.wiiv.mysterymod.items.ItemDroid;
-import com.wiiv.mysterymod.items.ItemHandBlaster;
-import com.wiiv.mysterymod.items.ItemMMGeneric;
-import com.wiiv.mysterymod.items.ItemPrism;
-import com.wiiv.mysterymod.items.ItemSalt;
-import com.wiiv.mysterymod.items.ItemWand;
+import com.wiiv.mysterymod.item.ItemCard;
+import com.wiiv.mysterymod.item.ItemDeathstone;
+import com.wiiv.mysterymod.item.ItemDroid;
+import com.wiiv.mysterymod.item.ItemHandBlaster;
+import com.wiiv.mysterymod.item.ItemMMGeneric;
+import com.wiiv.mysterymod.item.ItemPrism;
+import com.wiiv.mysterymod.item.ItemSalt;
+import com.wiiv.mysterymod.item.ItemWand;
 import com.wiiv.mysterymod.reference.ItemsMM;
 
 import cpw.mods.fml.common.registry.GameRegistry;

@@ -4,6 +4,7 @@ tile.mystery:rainbow.name=Rainbow
 tile.mystery:chandelier.name=Chandelier
 tile.mystery:rotational.name=Rotational
 tile.mystery:weirdBomb.name=Weird Bomb
+tile.mystery:poisonOre.name=Poison Ore
 tile.mystery:poisonBlock.name=Block of Poison
 tile.mystery:alembic.name=Alembic
 tile.mystery:urn.name=Urn
@@ -28,3 +29,9 @@ item.mystery:deathStoneSkeleton.name=Skeleton Death Stone
 itemGroup.wiiv's items=Wiiv's Items
 itemGroup.wiiv's blocks=Wiiv's Blocks
 itemGroup.wiiv's miscellaneous=Wiiv's Miscellaneous
+
+#Keys
+key.mystery.category=Mystery
+key.mystery.release=Release
+key.mystery.charge=Charge
+key.mystery.explode=Explode

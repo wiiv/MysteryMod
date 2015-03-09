@@ -23,10 +23,12 @@ public class ItemsMM {
 	
 	public static final String UNLOCALIZED_DROID_NAME = "droid";
 	public static final String DROID_ICON = "droid";
+	public static int DROID_ID;
 	
 	public static final String UNLOCALIZED_HANDBLASTER_NAME = "handblaster";
 	public static final String HANDBLASTER_ICON = "handblaster";
 	
 	public static final String UNLOCALIZED_SALT_NAME = "salt";
 	public static final String SALT_ICON = "salt";
+	
 }

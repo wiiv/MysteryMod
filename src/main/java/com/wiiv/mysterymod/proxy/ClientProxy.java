@@ -1,27 +1,42 @@
 package com.wiiv.mysterymod.proxy;
 
+import net.minecraftforge.client.MinecraftForgeClient;
+
+import com.wiiv.mysterymod.client.model.ModelDroid;
+import com.wiiv.mysterymod.client.renderer.block.RenderMachineBlock;
+import com.wiiv.mysterymod.client.renderer.entity.RenderBomb;
+import com.wiiv.mysterymod.client.renderer.entity.RenderDroid;
+import com.wiiv.mysterymod.client.renderer.entity.RenderSpaceship;
+import com.wiiv.mysterymod.client.renderer.item.RenderDroidItem;
+import com.wiiv.mysterymod.client.renderer.tileentity.RenderAlembicTileEntity;
+import com.wiiv.mysterymod.client.renderer.tileentity.RenderChandelierTileEntity;
+import com.wiiv.mysterymod.entity.EntityBomb;
+import com.wiiv.mysterymod.entity.EntityDroid;
+import com.wiiv.mysterymod.entity.EntitySpaceship;
+import com.wiiv.mysterymod.init.ItemsMMInit;
+import com.wiiv.mysterymod.reference.BlocksMM;
+import com.wiiv.mysterymod.reference.KeysMM;
+import com.wiiv.mysterymod.tileentities.TileEntityAlembic;
+import com.wiiv.mysterymod.tileentities.TileEntityChandelier;
+
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import net.minecraft.client.audio.SoundHandler;
 
 public class ClientProxy extends CommonProxy{
-	
-	@Override
-	public void initSounds() {
-		//new SoundHandler(null, null);
-	}
-	
+
 	@Override
 	public void initRenderers() {
-		/*RenderingRegistry.registerEntityRenderingHandler(EntitySpaceship.class, new RenderSpaceship());
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntitySpaceship.class, new RenderSpaceship());
 		
 		ModelDroid model = new ModelDroid();
 		RenderingRegistry.registerEntityRenderingHandler(EntityDroid.class, new RenderDroid(model));
-		MinecraftForgeClient.registerItemRenderer(ItemInfo.DROID_ID + 256, new RenderDroidItem(model));
+		MinecraftForgeClient.registerItemRenderer(ItemsMMInit.droid, new RenderDroidItem(model));
 		
 		//machine block
 		
 		RenderMachineBlock machineRender =  new RenderMachineBlock();
-		BlockInfo.MACHINE_RENDER_ID = machineRender.getRenderId();
+		BlocksMM.MACHINE_RENDER_ID = machineRender.getRenderId();
 		RenderingRegistry.registerBlockHandler(machineRender);
 		
 		//bomb entity
@@ -34,7 +49,14 @@ public class ClientProxy extends CommonProxy{
 		
 		//chandelier te
 		RenderChandelierTileEntity chandelierRender =  new RenderChandelierTileEntity();
-		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChandelier.class, chandelierRender);*/
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChandelier.class, chandelierRender);
 	}
 
+	@Override
+	public void initKeybindings() {
+	
+		for (KeysMM keybind :  KeysMM.values()){
+			ClientRegistry.registerKeyBinding(keybind.getKeyBind());
+		}
+	}
 }

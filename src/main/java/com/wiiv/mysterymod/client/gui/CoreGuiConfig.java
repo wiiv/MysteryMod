@@ -5,7 +5,7 @@ import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
 
 import com.wiiv.mysterymod.handler.ConfigurationHandler;
-import com.wiiv.mysterymod.reference.CoreReferences;
+import com.wiiv.mysterymod.reference.Core;
 
 import cpw.mods.fml.client.config.GuiConfig;
 
@@ -15,7 +15,7 @@ public class CoreGuiConfig extends GuiConfig{
 		
 		super(parentScreen, 
 				new ConfigElement(ConfigurationHandler.configuration.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(), 
-				CoreReferences.MOD_ID, 
+				Core.MOD_ID, 
 				false,
 				false, 
 				GuiConfig.getAbridgedConfigPath(ConfigurationHandler.configuration.toString()));

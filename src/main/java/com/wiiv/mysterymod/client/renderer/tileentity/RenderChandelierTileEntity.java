@@ -10,7 +10,7 @@ import com.wiiv.mysterymod.client.model.ModelChandelier;
 
 public class RenderChandelierTileEntity extends TileEntitySpecialRenderer{
 
-	private static final ResourceLocation texture = new ResourceLocation("example", "textures/models/chandelier.png");
+	private static final ResourceLocation texture = new ResourceLocation("mm", "textures/models/chandelier.png");
 	
 	private ModelChandelier model;
 	

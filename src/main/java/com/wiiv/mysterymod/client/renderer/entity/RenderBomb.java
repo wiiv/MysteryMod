@@ -1,16 +1,16 @@
 package com.wiiv.mysterymod.client.renderer.entity;
 
-import org.lwjgl.opengl.GL11;
-
-import com.wiiv.mysterymod.client.model.ModelBomb;
-
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
+import org.lwjgl.opengl.GL11;
+
+import com.wiiv.mysterymod.client.model.ModelBomb;
+
 public class RenderBomb extends Render{
 
-	private static final ResourceLocation texture = new ResourceLocation("example", "textures/models/bomb.png");
+	private static final ResourceLocation texture = new ResourceLocation("mm", "textures/models/bomb.png");
 	
 	private ModelBomb model;
 	

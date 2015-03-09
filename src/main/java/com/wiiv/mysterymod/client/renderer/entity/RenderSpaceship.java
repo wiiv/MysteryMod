@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import com.wiiv.mysterymod.client.model.ModelSpaceship;
-import com.wiiv.mysterymod.entities.EntitySpaceship;
+import com.wiiv.mysterymod.entity.EntitySpaceship;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -15,8 +15,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderSpaceship extends Render {
 	
-    private static final ResourceLocation texture = new ResourceLocation("example", "textures/models/spaceship.png");
-	private static final ResourceLocation chargedTexture = new ResourceLocation("example", "textures/models/spaceship_charged.png");
+    private static final ResourceLocation texture = new ResourceLocation("mm", "textures/models/spaceship.png");
+	private static final ResourceLocation chargedTexture = new ResourceLocation("mm", "textures/models/spaceship_charged.png");
 
     protected ModelSpaceship model;
 

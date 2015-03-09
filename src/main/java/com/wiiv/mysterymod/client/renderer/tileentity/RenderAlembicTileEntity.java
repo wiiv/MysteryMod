@@ -10,7 +10,7 @@ import com.wiiv.mysterymod.client.model.ModelAlembic;
 
 public class RenderAlembicTileEntity extends TileEntitySpecialRenderer{
 
-	private static final ResourceLocation texture = new ResourceLocation("example", "textures/models/alembic.png");
+	private static final ResourceLocation texture = new ResourceLocation("mm", "textures/models/alembic.png");
 	
 	private ModelAlembic model;
 	

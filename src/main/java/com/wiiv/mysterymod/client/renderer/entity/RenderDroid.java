@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import com.wiiv.mysterymod.client.model.ModelDroid;
-import com.wiiv.mysterymod.entities.EntityDroid;
+import com.wiiv.mysterymod.entity.EntityDroid;
 
 public class RenderDroid extends Render {
 
@@ -19,7 +19,7 @@ public class RenderDroid extends Render {
 		shadowSize = 0.5F;
 	}
 	
-	public static final ResourceLocation texture = new ResourceLocation("example", "textures/models/droid.png");
+	public static final ResourceLocation texture = new ResourceLocation("mm", "textures/models/droid.png");
 	
 	public void renderDroid(EntityDroid droid, double x, double y, double z, float yaw, float partialTickTime) {
 		
