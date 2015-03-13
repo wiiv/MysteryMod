@@ -8,7 +8,7 @@ public enum KeysMM{
 	
 	CHARGE("key.mystery.charge", Keyboard.KEY_C),
 	RELEASE("key.mystery.release", Keyboard.KEY_R),
-	EXPLODE("key.mystery.charge", Keyboard.KEY_B);
+	EXPLODE("key.mystery.explode", Keyboard.KEY_B);
 	
 	private final KeyBinding keybind;
 	

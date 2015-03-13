@@ -31,4 +31,7 @@ public class ItemsMM {
 	public static final String UNLOCALIZED_SALT_NAME = "salt";
 	public static final String SALT_ICON = "salt";
 	
+	public static final String UNLOCALIZED_POISONCHUNK_NAME = "poisonChunk";
+	public static final String POISONCHUNK_ICON = "poison_chunk";
+	
 }

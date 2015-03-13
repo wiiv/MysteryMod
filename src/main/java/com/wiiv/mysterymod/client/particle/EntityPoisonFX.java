@@ -3,7 +3,7 @@ package com.wiiv.mysterymod.client.particle;
 import net.minecraft.client.particle.EntityFX;
 import net.minecraft.world.World;
 
-import com.wiiv.mysterymod.block.BlockPoisonOre;
+import com.wiiv.mysterymod.blocks.BlockPoisonOre;
 
 public class EntityPoisonFX extends EntityFX{
 	

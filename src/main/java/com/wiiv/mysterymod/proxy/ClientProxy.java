@@ -3,13 +3,13 @@ package com.wiiv.mysterymod.proxy;
 import net.minecraftforge.client.MinecraftForgeClient;
 
 import com.wiiv.mysterymod.client.model.ModelDroid;
-import com.wiiv.mysterymod.client.renderer.block.RenderMachineBlock;
-import com.wiiv.mysterymod.client.renderer.entity.RenderBomb;
-import com.wiiv.mysterymod.client.renderer.entity.RenderDroid;
-import com.wiiv.mysterymod.client.renderer.entity.RenderSpaceship;
-import com.wiiv.mysterymod.client.renderer.item.RenderDroidItem;
-import com.wiiv.mysterymod.client.renderer.tileentity.RenderAlembicTileEntity;
-import com.wiiv.mysterymod.client.renderer.tileentity.RenderChandelierTileEntity;
+import com.wiiv.mysterymod.client.render.block.RenderMachineBlock;
+import com.wiiv.mysterymod.client.render.entity.RenderBomb;
+import com.wiiv.mysterymod.client.render.entity.RenderDroid;
+import com.wiiv.mysterymod.client.render.entity.RenderSpaceship;
+import com.wiiv.mysterymod.client.render.item.RenderDroidItem;
+import com.wiiv.mysterymod.client.render.tileentity.RenderAlembicTileEntity;
+import com.wiiv.mysterymod.client.render.tileentity.RenderChandelierTileEntity;
 import com.wiiv.mysterymod.entity.EntityBomb;
 import com.wiiv.mysterymod.entity.EntityDroid;
 import com.wiiv.mysterymod.entity.EntitySpaceship;
@@ -25,7 +25,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 public class ClientProxy extends CommonProxy{
 
 	@Override
-	public void initRenderers() {
+	public void initRenders() {
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntitySpaceship.class, new RenderSpaceship());
 		

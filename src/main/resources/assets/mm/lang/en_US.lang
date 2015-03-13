@@ -8,10 +8,13 @@ tile.mystery:poisonOre.name=Poison Ore
 tile.mystery:poisonBlock.name=Block of Poison
 tile.mystery:alembic.name=Alembic
 tile.mystery:urn.name=Urn
+tile.mystery:rockSalt.name=Rock Salt
 
 #Items
 item.mystery:prism.name=Prism
 item.mystery:propellerWand.name=Propeller Wand
+item.mystery:handblaster.name=Handblaster
+item.mystery:droid.name=Droid
 
 item.mystery:symbolCardBlank.name=Blank Card
 item.mystery:symbolCardArrow.name=Arrow Card

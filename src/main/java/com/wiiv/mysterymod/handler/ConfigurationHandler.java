@@ -5,7 +5,7 @@ import java.io.File;
 import net.minecraftforge.common.config.Configuration;
 
 import com.wiiv.mysterymod.reference.BlocksMM;
-import com.wiiv.mysterymod.reference.Core;
+import com.wiiv.mysterymod.reference.CoreMM;
 import com.wiiv.mysterymod.reference.ItemsMM;
 
 import cpw.mods.fml.client.event.ConfigChangedEvent;
@@ -30,7 +30,7 @@ public class ConfigurationHandler {
 	@SubscribeEvent
 	public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event){
 		
-		if (event.modID.equalsIgnoreCase(Core.MOD_ID)){
+		if (event.modID.equalsIgnoreCase(CoreMM.MOD_ID)){
 			
 			//resync config
 		}

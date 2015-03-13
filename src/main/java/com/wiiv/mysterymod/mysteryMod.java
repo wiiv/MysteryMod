@@ -4,13 +4,14 @@ import com.wiiv.mysterymod.client.handler.KeyInputHandler;
 import com.wiiv.mysterymod.handler.ConfigurationHandler;
 import com.wiiv.mysterymod.handler.GenerationHandler;
 import com.wiiv.mysterymod.handler.GuiHandler;
+import com.wiiv.mysterymod.handler.NetworkHandler;
 import com.wiiv.mysterymod.init.BlocksMMInit;
 import com.wiiv.mysterymod.init.EntitiesMMInit;
 import com.wiiv.mysterymod.init.ItemsMMInit;
 import com.wiiv.mysterymod.init.RecipesMMInit;
 import com.wiiv.mysterymod.init.TilesMMInit;
 import com.wiiv.mysterymod.proxy.IProxy;
-import com.wiiv.mysterymod.reference.Core;
+import com.wiiv.mysterymod.reference.CoreMM;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -18,17 +19,18 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 
 
-@Mod(modid = Core.MOD_ID, name = Core.NAME, version = Core.VERSION, guiFactory = Core.GUI_FACTORY_CLASS)
+@Mod(modid = CoreMM.MOD_ID, name = CoreMM.NAME, version = CoreMM.VERSION, guiFactory = CoreMM.GUI_FACTORY_CLASS)
 
 public class mysteryMod {
 	
-	@Mod.Instance(Core.MOD_ID)
+	@Mod.Instance(CoreMM.MOD_ID)
 	public static mysteryMod instance;
 	
-	@SidedProxy(clientSide = Core.CLIENT_PROXY_CLASS, serverSide = Core.SERVER_PROXY_CLASS)
+	@SidedProxy(clientSide = CoreMM.CLIENT_PROXY_CLASS, serverSide = CoreMM.SERVER_PROXY_CLASS)
 	public static IProxy proxy;
 	
 
@@ -42,10 +44,12 @@ public class mysteryMod {
 		ItemsMMInit.init();
 		BlocksMMInit.init();
 		
-		new GenerationHandler();
+		GameRegistry.registerWorldGenerator(new GenerationHandler(), 0);
+		
+		NetworkHandler.init();
 		
 		proxy.initKeybindings();
-		proxy.initRenderers();
+		proxy.initRenders();
 	}
 	
 	@Mod.EventHandler

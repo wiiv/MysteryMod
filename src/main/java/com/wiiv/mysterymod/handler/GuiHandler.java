@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 
 import com.wiiv.mysterymod.client.gui.ContainerMachine;
 import com.wiiv.mysterymod.client.gui.GuiMachine;
-import com.wiiv.mysterymod.reference.Core;
+import com.wiiv.mysterymod.reference.CoreMM;
 import com.wiiv.mysterymod.tileentities.TileEntityMachine;
 
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -15,7 +15,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 public class GuiHandler implements IGuiHandler{
 	
 	public GuiHandler(){
-		NetworkRegistry.INSTANCE.registerGuiHandler(Core.MOD_ID, this);
+		NetworkRegistry.INSTANCE.registerGuiHandler(CoreMM.MOD_ID, this);
 	}
 
 	@Override

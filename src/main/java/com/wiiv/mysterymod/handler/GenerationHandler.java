@@ -13,7 +13,6 @@ import com.wiiv.mysterymod.world.gen.worldGenPoison;
 import com.wiiv.mysterymod.world.gen.worldGenSalt;
 
 import cpw.mods.fml.common.IWorldGenerator;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class GenerationHandler implements IWorldGenerator {
 
@@ -23,7 +22,6 @@ public class GenerationHandler implements IWorldGenerator {
 	
 	public GenerationHandler() {
 		
-		GameRegistry.registerWorldGenerator(this, 0);
 		poisonOreGen = new WorldGenMinable(BlocksMMInit.poisonOre, 16);
 		saltOreGen = new WorldGenMinable(BlocksMMInit.rocksalt, 32);
 	}

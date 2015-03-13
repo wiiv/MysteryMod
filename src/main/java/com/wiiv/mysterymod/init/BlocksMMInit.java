@@ -2,15 +2,17 @@ package com.wiiv.mysterymod.init;
 
 import net.minecraft.block.Block;
 
-import com.wiiv.mysterymod.block.BlockAlembic;
-import com.wiiv.mysterymod.block.BlockBomb;
-import com.wiiv.mysterymod.block.BlockChandelier;
-import com.wiiv.mysterymod.block.BlockMachine;
-import com.wiiv.mysterymod.block.BlockRainbow;
-import com.wiiv.mysterymod.block.BlockRotational;
-import com.wiiv.mysterymod.block.BlockSalt;
-import com.wiiv.mysterymod.block.BlockPoison;
-import com.wiiv.mysterymod.block.BlockPoisonOre;
+import com.wiiv.mysterymod.blocks.BlockAlembic;
+import com.wiiv.mysterymod.blocks.BlockBomb;
+import com.wiiv.mysterymod.blocks.BlockChandelier;
+import com.wiiv.mysterymod.blocks.BlockMachine;
+import com.wiiv.mysterymod.blocks.BlockMine;
+import com.wiiv.mysterymod.blocks.BlockPoison;
+import com.wiiv.mysterymod.blocks.BlockPoisonOre;
+import com.wiiv.mysterymod.blocks.BlockRainbow;
+import com.wiiv.mysterymod.blocks.BlockRotational;
+import com.wiiv.mysterymod.blocks.BlockSalt;
+import com.wiiv.mysterymod.blocks.BlockUrn;
 import com.wiiv.mysterymod.reference.BlocksMM;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -25,8 +27,9 @@ public class BlocksMMInit {
 	public static Block poisonBlock = new BlockPoison();
 	public static Block alembic = new BlockAlembic();
 	public static Block chandelier = new BlockChandelier();
-	//public static Block urn = new BlockUrn();
+	public static Block urn = new BlockUrn();
 	public static Block rocksalt = new BlockSalt();
+	public static Block mine = new BlockMine();
 	
 	public static void init() {
  
@@ -38,7 +41,8 @@ public class BlocksMMInit {
 		GameRegistry.registerBlock(poisonBlock, BlocksMM.UNLOCALIZED_POISONBLOCK_NAME);
 		GameRegistry.registerBlock(alembic, BlocksMM.UNLOCALIZED_ALEMBIC_NAME);
 		GameRegistry.registerBlock(chandelier, BlocksMM.UNLOCALIZED_CHANDELIER_NAME);
-		//urn;
+		GameRegistry.registerBlock(urn, BlocksMM.UNLOCALIZED_URN_NAME);
 		GameRegistry.registerBlock(rocksalt, BlocksMM.UNLOCALIZED_SALT_NAME);
+		GameRegistry.registerBlock(mine, BlocksMM.UNLOCALIZED_MINE_NAME);
 	}
 }

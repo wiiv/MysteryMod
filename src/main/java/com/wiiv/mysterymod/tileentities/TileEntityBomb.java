@@ -1,10 +1,9 @@
 package com.wiiv.mysterymod.tileentities;
 
-import com.wiiv.mysterymod.init.BlocksMMInit;
-import com.wiiv.mysterymod.reference.BlocksMM;
-
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+
+import com.wiiv.mysterymod.init.BlocksMMInit;
 
 public class TileEntityBomb extends TileEntity {
 	
@@ -37,7 +36,8 @@ public class TileEntityBomb extends TileEntity {
 			}else if(timer <= 20 && timer > 0) {
 				worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 3, 3);
 				
-			}else if(timer == 0 && level < SPREAD_LEVELS) {		
+			}else if(timer == 0 && level < SPREAD_LEVELS) {	
+				
 				spread(xCoord + 1, yCoord, zCoord);
 				spread(xCoord - 1, yCoord, zCoord);
 				spread(xCoord, yCoord, zCoord + 1);
