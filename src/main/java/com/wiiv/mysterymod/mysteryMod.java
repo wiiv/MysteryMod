@@ -2,6 +2,7 @@ package com.wiiv.mysterymod;
 
 import com.wiiv.mysterymod.client.handler.KeyInputHandler;
 import com.wiiv.mysterymod.handler.ConfigurationHandler;
+import com.wiiv.mysterymod.handler.DescriptionHandler;
 import com.wiiv.mysterymod.handler.GenerationHandler;
 import com.wiiv.mysterymod.handler.GuiHandler;
 import com.wiiv.mysterymod.handler.NetworkHandler;
@@ -10,7 +11,7 @@ import com.wiiv.mysterymod.init.EntitiesMMInit;
 import com.wiiv.mysterymod.init.ItemsMMInit;
 import com.wiiv.mysterymod.init.RecipesMMInit;
 import com.wiiv.mysterymod.init.TilesMMInit;
-import com.wiiv.mysterymod.proxy.IProxy;
+import com.wiiv.mysterymod.proxy.CommonProxy;
 import com.wiiv.mysterymod.reference.CoreMM;
 
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -31,7 +32,7 @@ public class mysteryMod {
 	public static mysteryMod instance;
 	
 	@SidedProxy(clientSide = CoreMM.CLIENT_PROXY_CLASS, serverSide = CoreMM.SERVER_PROXY_CLASS)
-	public static IProxy proxy;
+	public static CommonProxy proxy;
 	
 
 	@Mod.EventHandler
@@ -46,7 +47,9 @@ public class mysteryMod {
 		
 		GameRegistry.registerWorldGenerator(new GenerationHandler(), 0);
 		
+		//network
 		NetworkHandler.init();
+		DescriptionHandler.init();
 		
 		proxy.initKeybindings();
 		proxy.initRenders();

@@ -1,10 +1,16 @@
 package com.wiiv.mysterymod.proxy;
 
-public abstract class CommonProxy implements IProxy{
+import net.minecraft.entity.player.EntityPlayer;
 
-	@Override
+public abstract class CommonProxy {
+
 	public void initRenders(){
 		
 	}
+	
+	public void initKeybindings() {
 
+	}
+	
+	public abstract EntityPlayer getClientPlayer();
 }

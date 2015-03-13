@@ -15,14 +15,14 @@ public class NetworkHandler {
 	
 	public static void init(){
 		
-		 INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(CoreMM.CHANNEL);
+		 INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(CoreMM.CHANNELS[0]);
 		 
 		 INSTANCE.registerMessage(MessageExplode.class, MessageExplode.class, 0, Side.SERVER);
 	}
 	
-	public static void sendToServer(IMessage message){
+	public static void sendToServer(IMessage msg){
 		
-		INSTANCE.sendToServer(message);
+		INSTANCE.sendToServer(msg);
 	}
 	
 }

@@ -5,7 +5,7 @@ import net.minecraft.tileentity.TileEntity;
 
 import com.wiiv.mysterymod.init.BlocksMMInit;
 
-public class TileEntityBomb extends TileEntity {
+public class TileEntityBomb extends TileEntityMMGeneric {
 	
 	private static final int SPREAD_TIME = 60;
 	private static final int SPREAD_LEVELS = 4;

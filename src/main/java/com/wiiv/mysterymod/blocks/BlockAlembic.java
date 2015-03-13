@@ -57,9 +57,4 @@ public class BlockAlembic extends BlockTileEntityMMGeneric {
 	
 		return false;
 	}
-	
-	public TileEntity getBlockEntity() {
-	
-		return new TileEntityAlembic();
-	}
 }

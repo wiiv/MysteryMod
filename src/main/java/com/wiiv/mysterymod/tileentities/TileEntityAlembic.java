@@ -1,8 +1,7 @@
 package com.wiiv.mysterymod.tileentities;
 
-import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityAlembic extends TileEntity {
+public class TileEntityAlembic extends TileEntityMMGeneric {
 
 	/** Determines if the check for adjacent alembics has taken place. */
     public boolean adjacentAlembicChecked;

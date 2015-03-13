@@ -3,8 +3,12 @@ package com.wiiv.mysterymod.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.wiiv.mysterymod.reference.BlocksMM;
@@ -56,10 +60,37 @@ public class BlockMine extends BlockTileEntityMMGeneric {
 		}
 	}
 	
+	//returns the texture of the camouflage or the default texture
 	@Override
-	public TileEntity createNewTileEntity(World world, int metadata) {
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
+	
+		TileEntityMine TEMine = (TileEntityMine)world.getTileEntity(x, y, z);
 		
-		return new TileEntityMine();
+		ItemStack stack = TEMine.getCamouflage();
+		
+		if(stack != null && stack.getItem() instanceof ItemBlock) {
+			
+			Block block = ((ItemBlock)stack.getItem()).field_150939_a;
+			
+			return block.getIcon(side, stack.getItemDamage());
+			
+		} else{
+			
+			return super.getIcon(world, x, y, z, side);
+		}
+	}
+	
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+		
+		if(!world.isRemote) {
+	
+			TileEntityMine TEMine = (TileEntityMine)world.getTileEntity(x, y, z);
+		
+			TEMine.setCamouflage(player.getCurrentEquippedItem());
+		}
+		return true;
 	}
 	
 	@Override
@@ -73,4 +104,11 @@ public class BlockMine extends BlockTileEntityMMGeneric {
     {
         return true;
     }
+	
+	
+	@Override
+	public TileEntity createNewTileEntity(World world, int metadata) {
+		
+		return new TileEntityMine();
+	}
 }

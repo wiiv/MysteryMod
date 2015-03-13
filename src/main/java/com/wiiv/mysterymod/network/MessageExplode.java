@@ -10,10 +10,10 @@ public class MessageExplode extends MessageMMGeneric<MessageExplode> {
 	
 	public MessageExplode(){}
 		
-	public MessageExplode(double explosionHeigth, float explosionSize){
+	public MessageExplode(double exHeigth, float exSize){
 		
-		this.explosionHeight = explosionHeigth;
-		this.explosionSize = explosionSize;
+		explosionHeight = exHeigth;
+		explosionSize = exSize;
 	}
 	
 	@Override

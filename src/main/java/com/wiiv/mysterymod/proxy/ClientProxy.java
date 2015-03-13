@@ -1,5 +1,7 @@
 package com.wiiv.mysterymod.proxy;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.MinecraftForgeClient;
 
 import com.wiiv.mysterymod.client.model.ModelDroid;
@@ -58,5 +60,11 @@ public class ClientProxy extends CommonProxy{
 		for (KeysMM keybind :  KeysMM.values()){
 			ClientRegistry.registerKeyBinding(keybind.getKeyBind());
 		}
+	}
+
+	@Override
+	public EntityPlayer getClientPlayer() {
+		
+		return Minecraft.getMinecraft().thePlayer;
 	}
 }

@@ -225,10 +225,10 @@ public class BlockMachine extends BlockTileEntityMMGeneric {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block id, int meta) {
 	
-		TileEntity te = world.getTileEntity(x, y, z);
+		TileEntity TEMachine = world.getTileEntity(x, y, z);
 		
-		if (te != null && te instanceof IInventory) {
-			IInventory inventory = (IInventory) te;
+		if (TEMachine != null && TEMachine instanceof IInventory) {
+			IInventory inventory = (IInventory) TEMachine;
 			
 			for (int i = 0; i < inventory.getSizeInventory(); i++) {
 				ItemStack itemstack = inventory.getStackInSlotOnClosing(i);

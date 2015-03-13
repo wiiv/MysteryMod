@@ -1,8 +1,7 @@
 package com.wiiv.mysterymod.tileentities;
 
-import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityRotational extends TileEntity {
+public class TileEntityRotational extends TileEntityMMGeneric {
 	
 	public TileEntityRotational() {
 		
