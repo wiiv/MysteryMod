@@ -1,4 +1,4 @@
-package com.wiiv.mysterymod.client.render.entity;
+package com.wiiv.mysterymod.client.renderer.entity;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;

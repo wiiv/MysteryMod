@@ -1,4 +1,4 @@
-package com.wiiv.mysterymod.client.render.block;
+package com.wiiv.mysterymod.client.renderer.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -10,10 +10,10 @@ import org.lwjgl.opengl.GL11;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
-public class RenderMachineBlock implements ISimpleBlockRenderingHandler{
+public class RenderBlockMachine implements ISimpleBlockRenderingHandler{
 
 	private int id;
-	public RenderMachineBlock() {
+	public RenderBlockMachine() {
 		id = RenderingRegistry.getNextAvailableRenderId();
 	}
 	
@@ -63,8 +63,8 @@ public class RenderMachineBlock implements ISimpleBlockRenderingHandler{
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+		
 		Tessellator.instance.setColorOpaque_F(1F, 1F, 1F);
-		//renderer.renderFaceYPos(block, x, y, z, block.getIcon(1, world.getBlockMetadata(x, y, z)));
 
 		block.setBlockBounds(0F, 0.8F, 0F, 1F, 1F, 1F);
 		renderer.setRenderBoundsFromBlock(block);
@@ -88,7 +88,7 @@ public class RenderMachineBlock implements ISimpleBlockRenderingHandler{
 
 	@Override
 	public boolean shouldRender3DInInventory(int modelId) {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 

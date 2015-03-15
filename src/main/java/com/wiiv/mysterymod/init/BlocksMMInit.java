@@ -13,6 +13,8 @@ import com.wiiv.mysterymod.blocks.BlockRainbow;
 import com.wiiv.mysterymod.blocks.BlockRotational;
 import com.wiiv.mysterymod.blocks.BlockSalt;
 import com.wiiv.mysterymod.blocks.BlockUrn;
+import com.wiiv.mysterymod.itemblocks.ItemBlockMachine;
+import com.wiiv.mysterymod.itemblocks.ItemBlockRainbow;
 import com.wiiv.mysterymod.reference.BlocksMM;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -33,8 +35,9 @@ public class BlocksMMInit {
 	
 	public static void init() {
  
-		GameRegistry.registerBlock(machine, BlocksMM.UNLOCALIZED_MACHINE_NAME);
-		GameRegistry.registerBlock(rainbow, BlocksMM.UNLOCALIZED_RAINBOW_NAME);
+		GameRegistry.registerBlock(machine, ItemBlockMachine.class, BlocksMM.UNLOCALIZED_MACHINE_NAME);
+		GameRegistry.registerBlock(rainbow, ItemBlockRainbow.class, BlocksMM.UNLOCALIZED_RAINBOW_NAME);
+		
 		GameRegistry.registerBlock(rotational, BlocksMM.UNLOCALIZED_ROTATIONAL_NAME);
 		GameRegistry.registerBlock(bomb, BlocksMM.UNLOCALIZED_BOMB_NAME);
 		GameRegistry.registerBlock(poisonOre, BlocksMM.UNLOCALIZED_POISONORE_NAME);

@@ -46,7 +46,7 @@ public class TileEntityBomb extends TileEntityMMGeneric {
 				spread(xCoord, yCoord - 1, zCoord);
 				worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 0, 3);
 				
-				worldObj.playSoundEffect(xCoord, yCoord, zCoord, "example:beep", 1.0F, 1.0F);
+				worldObj.playSoundEffect(xCoord, yCoord, zCoord, "mm:beep", 1.0F, 1.0F);
 				
 				worldObj.addBlockEvent(xCoord, yCoord, zCoord, BlocksMMInit.bomb, 1, 0);
 				

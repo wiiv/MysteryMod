@@ -1,4 +1,4 @@
-package com.wiiv.mysterymod.client.render.tileentity;
+package com.wiiv.mysterymod.client.renderer.tileentity;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -6,16 +6,16 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.wiiv.mysterymod.client.model.ModelChandelier;
+import com.wiiv.mysterymod.client.model.ModelAlembic;
 
-public class RenderChandelierTileEntity extends TileEntitySpecialRenderer{
+public class RenderAlembicTileEntity extends TileEntitySpecialRenderer{
 
-	private static final ResourceLocation texture = new ResourceLocation("mm", "textures/models/chandelier.png");
+	public static final ResourceLocation texture = new ResourceLocation("mm", "textures/models/alembic.png");
 	
-	private ModelChandelier model;
+	private ModelAlembic model;
 	
-	public RenderChandelierTileEntity() {
-		this.model = new ModelChandelier();
+	public RenderAlembicTileEntity() {
+		this.model = new ModelAlembic();
 	}
 	
 	@Override

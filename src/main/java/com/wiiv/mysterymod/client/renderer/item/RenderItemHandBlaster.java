@@ -1,9 +1,9 @@
-package com.wiiv.mysterymod.client.render.item;
+package com.wiiv.mysterymod.client.renderer.item;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 
-public class RenderHandBlasterItem implements IItemRenderer{
+public class RenderItemHandBlaster implements IItemRenderer{
 
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {

@@ -1,4 +1,4 @@
-package com.wiiv.mysterymod.client.render.item;
+package com.wiiv.mysterymod.client.renderer.item;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -7,13 +7,13 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import com.wiiv.mysterymod.client.model.ModelDroid;
-import com.wiiv.mysterymod.client.render.entity.RenderDroid;
+import com.wiiv.mysterymod.client.renderer.entity.RenderDroid;
 
-public class RenderDroidItem implements IItemRenderer{
+public class RenderItemDroid implements IItemRenderer{
 
 	private ModelDroid model;
 	
-	public RenderDroidItem(ModelDroid model){
+	public RenderItemDroid(ModelDroid model){
 		this.model =  model;
 	}
 	
