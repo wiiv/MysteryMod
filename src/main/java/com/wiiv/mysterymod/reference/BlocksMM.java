@@ -17,7 +17,9 @@ public class BlocksMM {
 	public static final String UNLOCALIZED_URN_NAME = "urn";
 	public static final String UNLOCALIZED_SALT_NAME = "rockSalt";
 	public static final String UNLOCALIZED_MINE_NAME = "mine";
-	
+	public static final String UNLOCALIZED_CAMO_NAME = "camo";
+	public static final String UNLOCALIZED_CAKEBOX_NAME = "cakeBox";
+	public static final String UNLOCALIZED_PUMP_NAME = "pump";
 	
 	//textures
 	public static final String MACHINE_TOP = "machine_top";
@@ -48,6 +50,11 @@ public class BlocksMM {
 
 	public static final String[] MINE_TEXTURES = {"mine_bottom", "mine_top", "mine_side"};
 	
+	public static final String CAMO_TEXTURE = "camo";
+	
+	public static final String[] CAKEBOX_TEXTURES = {"cakebox_tb", "cakebox_side"};
+	
+	public static final String URN_TEXTURE = "urn";
 	
 	//tile entities
 	public static final String MACHINE_TE_KEY = "machineTileEntity";
@@ -56,8 +63,14 @@ public class BlocksMM {
 	public static final String ALEMBIC_TE_KEY = "alembicTileEntity";
 	public static final String CHANDELIER_TE_KEY = "chandelierTileEntity";
 	public static final String MINE_TE_KEY = "mineTileEntity";
+	public static final String PUMP_TE_KEY = "pumpTileEntity";
+	public static final String CAKEBOX_TE_KEY = "cakeBoxTileEntity";
+	public static final String CAMO_TE_KEY = "camoTileEntity";
 
 
+	
+	
+	
 	//renders
 	public static int MACHINE_RENDER_ID;
 }

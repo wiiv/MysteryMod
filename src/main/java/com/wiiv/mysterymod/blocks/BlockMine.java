@@ -3,6 +3,7 @@ package com.wiiv.mysterymod.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -75,7 +76,7 @@ public class BlockMine extends BlockTileEntityMMGeneric {
 			
 			return block.getIcon(side, stack.getItemDamage());
 			
-		} else{
+		}else {
 			
 			return super.getIcon(world, x, y, z, side);
 		}
@@ -87,9 +88,27 @@ public class BlockMine extends BlockTileEntityMMGeneric {
 		if(!world.isRemote) {
 	
 			TileEntityMine TEMine = (TileEntityMine)world.getTileEntity(x, y, z);
-		
-			TEMine.setCamouflage(player.getCurrentEquippedItem());
+			
+			if(TEMine.getCamouflage() != null) {
+				
+				ItemStack camoStack = TEMine.getCamouflage();
+				TEMine.setCamouflage(null);
+				
+				EntityItem itemEntity = new EntityItem(world, x + 0.5F, y + 0.5F, z + 0.5F, camoStack);
+				world.spawnEntityInWorld(itemEntity);
+						
+			}else {
+			
+				ItemStack playerItem = player.getCurrentEquippedItem();
+				
+				if( playerItem != null) {
+	
+					ItemStack camoStack = playerItem.splitStack(1);
+					TEMine.setCamouflage(camoStack);
+				}
+			}
 		}
+		
 		return true;
 	}
 	
@@ -100,8 +119,8 @@ public class BlockMine extends BlockTileEntityMMGeneric {
 	}
 	
 	@Override
-	public boolean getUseNeighborBrightness()
-    {
+	public boolean getUseNeighborBrightness() {
+		
         return true;
     }
 	

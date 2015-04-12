@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.wiiv.mysterymod.init.BlocksMMInit;
+import com.wiiv.mysterymod.client.gui.container.ContainerMachine;
 import com.wiiv.mysterymod.tileentities.TileEntityMachine;
 
 import cpw.mods.fml.relauncher.Side;
@@ -25,8 +25,8 @@ public class GuiMachine extends GuiContainer{
 	private final GuiTab[] tabs;
 	private GuiTab activeTab;
 
-	public GuiMachine(InventoryPlayer invPlayer, TileEntityMachine machine) {
-		super(new ContainerMachine(invPlayer, machine));
+	public GuiMachine(InventoryPlayer playerInv, TileEntityMachine machine) {
+		super(new ContainerMachine(playerInv, machine));
 		
 		this.machine = machine;
 		
@@ -64,7 +64,7 @@ public class GuiMachine extends GuiContainer{
 		
 		GL11.glColor4f(1, 1, 1, 1);
 		
-		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
+		mc.getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		
 		int meta = machine.getWorldObj().getBlockMetadata(machine.xCoord, machine.yCoord, machine.zCoord);
@@ -121,6 +121,7 @@ public class GuiMachine extends GuiContainer{
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y) {
+		
 		fontRendererObj.drawString("Silly Machine", 7, 6, 0x404040);
 		
 		int meta = machine.getWorldObj().getBlockMetadata(machine.xCoord, machine.yCoord, machine.zCoord);
@@ -248,12 +249,14 @@ public class GuiMachine extends GuiContainer{
 	
 	private boolean currentMode;
 	
+	@Override
 	protected void mouseClickMove(int x, int y, int button, long timeSinceClicked) {
 		super.mouseClickMove(x, y, button, timeSinceClicked);
 		
 		activeTab.mouseClickToMove(this, x, y, button, timeSinceClicked);
 	}
 	
+	@Override
 	public void mouseMovedOrUp(int x, int y, int button) {
 		super.mouseMovedOrUp(x, y, button);
 		

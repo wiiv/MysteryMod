@@ -22,6 +22,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.wiiv.mysterymod.mysteryMod;
+import com.wiiv.mysterymod.handler.GuiHandler;
 import com.wiiv.mysterymod.reference.BlocksMM;
 import com.wiiv.mysterymod.tabs.TabsMMGeneric;
 import com.wiiv.mysterymod.tileentities.TileEntityMachine;
@@ -202,7 +203,7 @@ public class BlockMachine extends BlockTileEntityMMGeneric {
 	
 		if (!world.isRemote) {
 			
-			FMLNetworkHandler.openGui(player, mysteryMod.instance, 0, world, x, y, z);
+			FMLNetworkHandler.openGui(player, mysteryMod.instance, GuiHandler.GuiID.MACHINE.ordinal(), world, x, y, z);
 		}
 		return true;
 	}

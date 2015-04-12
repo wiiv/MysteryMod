@@ -76,7 +76,7 @@ public class EntityDroid extends Entity {
 				targetY = startY + worldObj.rand.nextDouble() * 4;
 			}
 			
-			if (posY <= targetY) {
+			if (posY < targetY) {
 				
 				motionY = 0.04F;
 				

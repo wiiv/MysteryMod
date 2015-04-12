@@ -3,7 +3,6 @@ package com.wiiv.mysterymod.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
@@ -11,6 +10,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import com.wiiv.mysterymod.reference.BlocksMM;
+import com.wiiv.mysterymod.tabs.TabsMMGeneric;
 import com.wiiv.mysterymod.tileentities.TileEntityRotational;
 
 import cpw.mods.fml.relauncher.Side;
@@ -19,10 +19,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockRotational extends BlockMMGeneric {
 	
 	public BlockRotational() {
-	
 		super(Material.rock);
 		
-		setCreativeTab(CreativeTabs.tabDecorations);
+		setCreativeTab(TabsMMGeneric.tabBlocks);
 		setHardness(2F);
 		setStepSound(Block.soundTypeStone);
 	}
@@ -59,7 +58,8 @@ public class BlockRotational extends BlockMMGeneric {
 		else if (side == 5) {
 			return rotationalIcons[5];
 		}
-		else return rotationalIcons[0];
+		else 
+			return rotationalIcons[0];
 	}
 	
 	@Override

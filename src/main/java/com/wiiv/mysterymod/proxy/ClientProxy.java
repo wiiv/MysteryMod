@@ -15,6 +15,7 @@ import com.wiiv.mysterymod.client.renderer.itemblocks.RenderItemBlockAlembic;
 import com.wiiv.mysterymod.client.renderer.itemblocks.RenderItemBlockChandelier;
 import com.wiiv.mysterymod.client.renderer.tileentity.RenderAlembicTileEntity;
 import com.wiiv.mysterymod.client.renderer.tileentity.RenderChandelierTileEntity;
+import com.wiiv.mysterymod.client.renderer.tileentity.RenderPumpTileEntity;
 import com.wiiv.mysterymod.entity.EntityBomb;
 import com.wiiv.mysterymod.entity.EntityDroid;
 import com.wiiv.mysterymod.entity.EntitySpaceship;
@@ -24,6 +25,7 @@ import com.wiiv.mysterymod.reference.BlocksMM;
 import com.wiiv.mysterymod.reference.KeysMM;
 import com.wiiv.mysterymod.tileentities.TileEntityAlembic;
 import com.wiiv.mysterymod.tileentities.TileEntityChandelier;
+import com.wiiv.mysterymod.tileentities.TileEntityPump;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -57,6 +59,11 @@ public class ClientProxy extends CommonProxy{
 		RenderChandelierTileEntity chandelierRender =  new RenderChandelierTileEntity();
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityChandelier.class, chandelierRender);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlocksMMInit.chandelier), new RenderItemBlockChandelier(chandelierRender, new TileEntityChandelier()));
+		
+		//pump te
+		RenderPumpTileEntity pumpRender =  new RenderPumpTileEntity();
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPump.class, pumpRender);
+		//MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlocksMMInit.pump), new RenderItemBlockChandelier(pumpRender, new TileEntityPump()));
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package com.wiiv.mysterymod.init;
 
 import com.wiiv.mysterymod.items.ItemCard;
+import com.wiiv.mysterymod.items.ItemCreeperGoo;
 import com.wiiv.mysterymod.items.ItemDeathstone;
 import com.wiiv.mysterymod.items.ItemDroid;
 import com.wiiv.mysterymod.items.ItemHandBlaster;
@@ -21,6 +22,7 @@ public class ItemsMMInit {
 	public static ItemMMGeneric droid = new ItemDroid();
 	public static ItemMMGeneric handblaster = new ItemHandBlaster();
 	public static ItemMMGeneric salt = new ItemSalt();
+	public static ItemMMGeneric creeperGoo = new ItemCreeperGoo();
 	
 	public static void init(){
 
@@ -31,5 +33,6 @@ public class ItemsMMInit {
 		GameRegistry.registerItem(droid, ItemsMM.UNLOCALIZED_DROID_NAME);
 		GameRegistry.registerItem(handblaster, ItemsMM.UNLOCALIZED_HANDBLASTER_NAME);
 		GameRegistry.registerItem(salt, ItemsMM.UNLOCALIZED_SALT_NAME);
+		GameRegistry.registerItem(creeperGoo, ItemsMM.UNLOCALIZED_CREEPERGOO_NAME);
 	}
 }

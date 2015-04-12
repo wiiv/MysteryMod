@@ -34,10 +34,14 @@ public class GuiTabPreview extends GuiTab {
 	public void drawBackground(GuiMachine gui, int x, int y) {
 		
 		background.draw(gui, 176, 89);
+	}
+
+	@Override
+	public void drawForeground(GuiMachine gui, int x, int y) {
 		
 		GL11.glPushMatrix();//1
 		
-		GL11.glTranslatef(gui.getLeft() + 135, gui.getTop() + 70, 100);
+		GL11.glTranslatef(135, 70, 100);
 		
 		float scale = 32F;
 		GL11.glScalef(-scale, scale, scale);
@@ -50,7 +54,7 @@ public class GuiTabPreview extends GuiTab {
 		
 		RenderManager.instance.renderEntityWithPosYaw(anvil, 0, 0, 0, 0, 0);
 		
-		//RenderHelper.enableStandardItemLighting();//2
+		RenderHelper.enableStandardItemLighting();//2
 		
 		GL11.glPopMatrix();//1
 		
@@ -78,12 +82,8 @@ public class GuiTabPreview extends GuiTab {
 				roll = 24F;
 			}
 		}
-	}
-
-	@Override
-	public void drawForeground(GuiMachine gui, int x, int y) {
 		
-		//gui.getFontRenderer().drawString(GuiColor.GREY + "anvil preview".toUpperCase(), 30, 43, 0x404040);
+		gui.getFontRenderer().drawString(GuiColor.GREY + "anvil preview".toUpperCase(), 30, 43, 0x404040);
 	}
 
 }

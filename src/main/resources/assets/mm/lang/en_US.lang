@@ -4,6 +4,7 @@ tile.mystery:rainbow.name=Rainbow
 tile.mystery:chandelier.name=Chandelier
 tile.mystery:rotational.name=Rotational
 tile.mystery:weirdBomb.name=Weird Bomb
+tile.mystery:mine.name=Weird Mine
 tile.mystery:poisonOre.name=Poison Ore
 tile.mystery:poisonBlock.name=Block of Poison
 tile.mystery:alembic.name=Alembic

@@ -20,6 +20,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 
@@ -53,6 +54,9 @@ public class mysteryMod {
 		
 		proxy.initKeybindings();
 		proxy.initRenders();
+		
+		//gui
+		NetworkRegistry.INSTANCE.registerGuiHandler(CoreMM.MOD_ID, new GuiHandler());
 	}
 	
 	@Mod.EventHandler
@@ -65,8 +69,6 @@ public class mysteryMod {
 		TilesMMInit.init();
 		
 		RecipesMMInit.init();
-		
-		new GuiHandler();
 	}
 	
 	@Mod.EventHandler

@@ -2,12 +2,14 @@ package com.wiiv.mysterymod.tileentities;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
-public class TileEntityMachine extends TileEntityMMGeneric implements IInventory{
+import com.wiiv.mysterymod.init.ItemsMMInit;
+
+public class TileEntityMachine extends TileEntityMMGeneric{
 
 	private ItemStack[] items;
 	public final boolean[] customSetup;
@@ -15,7 +17,7 @@ public class TileEntityMachine extends TileEntityMMGeneric implements IInventory
 	
 	public TileEntityMachine() {
 		
-		items = new ItemStack[3];
+		items = new ItemStack[4];
 		customSetup = new boolean[25];
 	}
 	
@@ -30,15 +32,15 @@ public class TileEntityMachine extends TileEntityMMGeneric implements IInventory
 	}
 
 	@Override
-	public ItemStack decrStackSize(int i, int j) {
+	public ItemStack decrStackSize(int slot, int decreaseAmount) {
 		
-		ItemStack itemstack = getStackInSlot(i);
+		ItemStack itemstack = getStackInSlot(slot);
 		
 		if (itemstack != null){
-			if (itemstack.stackSize <= j) {
-				setInventorySlotContents(i, null);
+			if (itemstack.stackSize <= decreaseAmount) {
+				setInventorySlotContents(slot, null);
 			}else{
-				itemstack = itemstack.splitStack(j);
+				itemstack = itemstack.splitStack(decreaseAmount);
 				//onInventoryChanged();
 			}
 		}
@@ -46,19 +48,19 @@ public class TileEntityMachine extends TileEntityMMGeneric implements IInventory
 	}
 
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
+	public ItemStack getStackInSlotOnClosing(int slot) {
 		
-		ItemStack itemstack = getStackInSlot(i);
+		ItemStack itemstack = getStackInSlot(slot);
 		
-		setInventorySlotContents(i, null);
+		setInventorySlotContents(slot, null);
 		
 		return itemstack;
 	}
 
 	@Override
-	public void setInventorySlotContents(int i, ItemStack itemstack) {
+	public void setInventorySlotContents(int slot, ItemStack itemstack) {
 		
-		items[i] = itemstack;
+		items[slot] = itemstack;
 		
 		if (itemstack != null && itemstack.stackSize > getInventoryStackLimit()){
 			itemstack.stackSize = getInventoryStackLimit();
@@ -81,9 +83,10 @@ public class TileEntityMachine extends TileEntityMMGeneric implements IInventory
 	}
 
 	@Override
-	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
-		return entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 64;
-	}
+	public boolean isUseableByPlayer(EntityPlayer player) {
+    	
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : player.getDistanceSq(this.xCoord + 0.5D, this.yCoord + 0.5D, this.zCoord + 0.5D) <= 64.0D;
+    }
 
 	@Override
 	public void openInventory() {
@@ -94,14 +97,23 @@ public class TileEntityMachine extends TileEntityMMGeneric implements IInventory
 	}
 	
 	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return itemstack.equals(Blocks.anvil);
+	public boolean isItemValidForSlot(int i, ItemStack stack) {
+		
+		if(i >= 0 && i < 3){
+			
+			return stack.getItem() == Item.getItemFromBlock(Blocks.anvil);
+			
+		}else {
+			
+			return stack.getItem() == ItemsMMInit.card;
+		}
 	}
 	
 	@Override
 	public void writeToNBT(NBTTagCompound compound) {	
 		super.writeToNBT(compound);
 		
+		//anvil and card slots
 		NBTTagList items = new NBTTagList();
 		
 		for (int i = 0; i < getSizeInventory(); i++) {
@@ -117,6 +129,7 @@ public class TileEntityMachine extends TileEntityMMGeneric implements IInventory
 		
 		compound.setTag("Items", items);	
 		
+		//custom setup
 		for (int i = 0; i < customSetup.length; i++) {
 			compound.setBoolean("Custom" + i, customSetup[i]);
 		}
@@ -129,10 +142,12 @@ public class TileEntityMachine extends TileEntityMMGeneric implements IInventory
 	public void readFromNBT(NBTTagCompound compound) {	
 		super.readFromNBT(compound);
 		
-		/*NBTTagList items = compound.getTagList("Items", blockMetadata);
+		items = new ItemStack[4];
+		
+		NBTTagList items = compound.getTagList("Items", 10);
 		
 		for (int i = 0; i < items.tagCount(); i++) {
-			NBTTagCompound item = (NBTTagCompound) items.tagAt(i);
+			NBTTagCompound item = items.getCompoundTagAt(i);
 			byte slot = item.getByte("Slot");
 			
 			if (slot >= 0 && slot < getSizeInventory()) {
@@ -140,9 +155,10 @@ public class TileEntityMachine extends TileEntityMMGeneric implements IInventory
 			}
 		}
 		
+		//custom setup
 		for (int i = 0; i < customSetup.length; i++) {
 			setCustomAnvil(i, compound.getBoolean("Custom" + i));
-		}*/
+		}
 		
 		//height tab
 		heightSetting = compound.getByte("Height");
@@ -218,6 +234,7 @@ public class TileEntityMachine extends TileEntityMMGeneric implements IInventory
 			}
 		}
 	}
+	
 	/*
 	@Override
 	public void onInventoryChanged() {
@@ -226,6 +243,7 @@ public class TileEntityMachine extends TileEntityMMGeneric implements IInventory
 		anvils = -1;
 	}
 	*/
+	
 	private int customAnvils = 0;
 
 	public int getCustomAnvils() {

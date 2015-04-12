@@ -4,11 +4,14 @@ import net.minecraft.block.Block;
 
 import com.wiiv.mysterymod.blocks.BlockAlembic;
 import com.wiiv.mysterymod.blocks.BlockBomb;
+import com.wiiv.mysterymod.blocks.BlockCakeBox;
+import com.wiiv.mysterymod.blocks.BlockCamo;
 import com.wiiv.mysterymod.blocks.BlockChandelier;
 import com.wiiv.mysterymod.blocks.BlockMachine;
 import com.wiiv.mysterymod.blocks.BlockMine;
 import com.wiiv.mysterymod.blocks.BlockPoison;
 import com.wiiv.mysterymod.blocks.BlockPoisonOre;
+import com.wiiv.mysterymod.blocks.BlockPump;
 import com.wiiv.mysterymod.blocks.BlockRainbow;
 import com.wiiv.mysterymod.blocks.BlockRotational;
 import com.wiiv.mysterymod.blocks.BlockSalt;
@@ -32,6 +35,9 @@ public class BlocksMMInit {
 	public static Block urn = new BlockUrn();
 	public static Block rocksalt = new BlockSalt();
 	public static Block mine = new BlockMine();
+	public static Block camo = new BlockCamo();
+	public static Block cakeBox = new BlockCakeBox();
+	public static Block pump = new BlockPump();
 	
 	public static void init() {
  
@@ -47,5 +53,8 @@ public class BlocksMMInit {
 		GameRegistry.registerBlock(urn, BlocksMM.UNLOCALIZED_URN_NAME);
 		GameRegistry.registerBlock(rocksalt, BlocksMM.UNLOCALIZED_SALT_NAME);
 		GameRegistry.registerBlock(mine, BlocksMM.UNLOCALIZED_MINE_NAME);
+		GameRegistry.registerBlock(camo, BlocksMM.UNLOCALIZED_CAMO_NAME);
+		GameRegistry.registerBlock(cakeBox, BlocksMM.UNLOCALIZED_CAKEBOX_NAME);
+		GameRegistry.registerBlock(pump, BlocksMM.UNLOCALIZED_PUMP_NAME);
 	}
 }
