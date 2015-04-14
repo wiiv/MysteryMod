@@ -22,13 +22,13 @@ public class ContainerMachine extends ContainerMMGeneric{
 	public ContainerMachine(InventoryPlayer playerInv, TileEntityMachine machine) {
 		this.machine = machine;
 		
-		this.addPlayerSlots(playerInv, 8, 136);
-		
 		for (int x = 0; x < 3; x++) {//anvil slots
 			addSlotToContainer(new SlotAnvil(machine, x, 8 + 18 * x, 18));
 		}
 		
 		addSlotToContainer(new SlotCard(machine, 3, 8 + 18 * 3, 18));//card slot
+		
+		this.addPlayerSlots(playerInv, 8, 136);
 	}
 	
 	@Override
@@ -48,13 +48,13 @@ public class ContainerMachine extends ContainerMMGeneric{
                 stack = stackInSlot.copy();
 
                 //merges the item into player inventory since its in the tileEntity
-                if (slot < 9) {
-                        if (!this.mergeItemStack(stackInSlot, 0, 35, true)) {
+                if (slot < 4) {
+                        if (!this.mergeItemStack(stackInSlot, 4, 40, true)) {
                                 return null;
                         }
                 }
                 //places it into the tileEntity is possible since its in the player inventory
-                else if (!this.mergeItemStack(stackInSlot, 0, 9, false)) {
+                else if (!this.mergeItemStack(stackInSlot, 0, 4, false)) {
                         return null;
                 }
 

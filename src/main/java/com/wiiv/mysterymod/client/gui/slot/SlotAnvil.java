@@ -10,7 +10,6 @@ public class SlotAnvil extends Slot{
 
 	public SlotAnvil(IInventory inventory, int id, int x, int y) {
 		super(inventory, id, x, y);
-
 	}
 	
 	@Override

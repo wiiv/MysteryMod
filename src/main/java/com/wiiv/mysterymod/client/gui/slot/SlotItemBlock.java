@@ -4,16 +4,14 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-import com.wiiv.mysterymod.init.ItemsMMInit;
+public class SlotItemBlock extends Slot{
 
-public class SlotCard extends Slot{
-
-	public SlotCard(IInventory inventory, int id, int x, int y) {
-		super(inventory, id, x, y);
+	public SlotItemBlock(IInventory inventory, int inventoryIndex, int x, int y) {
+		super(inventory, inventoryIndex, x, y);
 	}
 	
 	@Override
 	public boolean isItemValid(ItemStack itemstack) {
-		return itemstack.getItem() == ItemsMMInit.card;
+		return inventory.isItemValidForSlot(getSlotIndex(), itemstack);
 	}
 }

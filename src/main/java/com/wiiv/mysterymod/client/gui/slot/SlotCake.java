@@ -9,7 +9,6 @@ public class SlotCake extends Slot{
 
 	public SlotCake(IInventory inventory, int id, int x, int y) {
 		super(inventory, id, x, y);
-
 	}
 	
 	@Override
