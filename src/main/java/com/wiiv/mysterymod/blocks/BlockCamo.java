@@ -3,6 +3,7 @@ package com.wiiv.mysterymod.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -75,28 +76,32 @@ public class BlockCamo extends BlockTileEntityMMGeneric {
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		
 		if(!world.isRemote) {
-	/*
-			TileEntityCamo TECamo = (TileEntityCamo)world.getTileEntity(x, y, z);
-			
-			if(TECamo.getCamouflage(side) != null) {
-				
-				ItemStack camoStack = TECamo.getCamouflage(side);
-				TECamo.setCamouflage(side, null);
-				
-				EntityItem itemEntity = new EntityItem(world, x + 0.5F, y + 1.25F, z + 0.5F, camoStack);
-				world.spawnEntityInWorld(itemEntity);
-						
+			if(player.isSneaking()){
+
+				FMLNetworkHandler.openGui(player, mysteryMod.instance, GuiHandler.GuiID.CAMO.ordinal(), world, x, y, z);
 			}else {
-			
-				ItemStack playerItem = player.getCurrentEquippedItem();
+
+				TileEntityCamo TECamo = (TileEntityCamo)world.getTileEntity(x, y, z);
 				
-				if( playerItem != null) {
-	
-					ItemStack camoStack = playerItem.splitStack(1);
-					TECamo.setCamouflage(side, camoStack);
+				if(TECamo.getCamouflage(side) != null) {
+					
+					ItemStack camoStack = TECamo.getCamouflage(side);
+					TECamo.setCamouflage(side, null);
+					
+					EntityItem itemEntity = new EntityItem(world, x + 0.5F, y + 1.25F, z + 0.5F, camoStack);
+					world.spawnEntityInWorld(itemEntity);
+							
+				}else {
+				
+					ItemStack playerItem = player.getCurrentEquippedItem();
+					
+					if( playerItem != null) {
+		
+						ItemStack camoStack = playerItem.splitStack(1);
+						TECamo.setCamouflage(side, camoStack);
+					}
 				}
-			}*/
-			FMLNetworkHandler.openGui(player, mysteryMod.instance, GuiHandler.GuiID.CAMO.ordinal(), world, x, y, z);
+			}
 		}
 		
 		return true;

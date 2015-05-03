@@ -16,6 +16,7 @@ import com.wiiv.mysterymod.client.renderer.itemblocks.RenderItemBlockChandelier;
 import com.wiiv.mysterymod.client.renderer.tileentity.RenderAlembicTileEntity;
 import com.wiiv.mysterymod.client.renderer.tileentity.RenderChandelierTileEntity;
 import com.wiiv.mysterymod.client.renderer.tileentity.RenderPumpTileEntity;
+import com.wiiv.mysterymod.client.renderer.tileentity.RenderUrnTileEntity;
 import com.wiiv.mysterymod.entity.EntityBomb;
 import com.wiiv.mysterymod.entity.EntityDroid;
 import com.wiiv.mysterymod.entity.EntitySpaceship;
@@ -26,6 +27,7 @@ import com.wiiv.mysterymod.reference.KeysMM;
 import com.wiiv.mysterymod.tileentities.TileEntityAlembic;
 import com.wiiv.mysterymod.tileentities.TileEntityChandelier;
 import com.wiiv.mysterymod.tileentities.TileEntityPump;
+import com.wiiv.mysterymod.tileentities.TileEntityUrn;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -64,6 +66,11 @@ public class ClientProxy extends CommonProxy{
 		RenderPumpTileEntity pumpRender =  new RenderPumpTileEntity();
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPump.class, pumpRender);
 		//MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlocksMMInit.pump), new RenderItemBlockChandelier(pumpRender, new TileEntityPump()));
+		
+		//urn te
+		RenderUrnTileEntity urnRender =  new RenderUrnTileEntity();
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityUrn.class, urnRender);
+		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlocksMMInit.urn), new RenderItemBlockAlembic(urnRender, new TileEntityUrn()));
 	}
 
 	@Override

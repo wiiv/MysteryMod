@@ -48,7 +48,8 @@ public class BlocksMM {
 	
 	public static final String SALT_TEXTURE = "rocksalt";
 
-	public static final String[] MINE_TEXTURES = {"mine_bottom", "mine_top", "mine_side"};
+	public static final String[] MINE_TEXTURES = {"mine_bottom", "mine_side"};
+	public static final String MINE_TEXTURE_STATES[] = { "mine_top_idle", "mine_top_active" };
 	
 	public static final String CAMO_TEXTURE = "camo";
 	
@@ -66,11 +67,8 @@ public class BlocksMM {
 	public static final String PUMP_TE_KEY = "pumpTileEntity";
 	public static final String CAKEBOX_TE_KEY = "cakeBoxTileEntity";
 	public static final String CAMO_TE_KEY = "camoTileEntity";
+	public static final String URN_TE_KEY = "urnTileEntity";
 
-
-	
-	
-	
 	//renders
 	public static int MACHINE_RENDER_ID;
 }

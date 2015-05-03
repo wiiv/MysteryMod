@@ -7,12 +7,15 @@ import net.minecraft.world.World;
 import com.wiiv.mysterymod.client.gui.GuiCakeBox;
 import com.wiiv.mysterymod.client.gui.GuiCamo;
 import com.wiiv.mysterymod.client.gui.GuiMachine;
+import com.wiiv.mysterymod.client.gui.GuiMine;
 import com.wiiv.mysterymod.client.gui.container.ContainerCakeBox;
 import com.wiiv.mysterymod.client.gui.container.ContainerCamo;
 import com.wiiv.mysterymod.client.gui.container.ContainerMachine;
+import com.wiiv.mysterymod.client.gui.container.ContainerMine;
 import com.wiiv.mysterymod.tileentities.TileEntityCakeBox;
 import com.wiiv.mysterymod.tileentities.TileEntityCamo;
 import com.wiiv.mysterymod.tileentities.TileEntityMachine;
+import com.wiiv.mysterymod.tileentities.TileEntityMine;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 
@@ -21,7 +24,8 @@ public class GuiHandler implements IGuiHandler{
 	public enum GuiID{
 		MACHINE,
 		CAKE_BOX,
-		CAMO
+		CAMO,
+		MINE
 	}
 	
 	@Override
@@ -30,6 +34,7 @@ public class GuiHandler implements IGuiHandler{
 		switch(GuiID.values()[ID]) {//container
 			
 			case MACHINE:
+				
 				TileEntity te0 = world.getTileEntity(x, y, z);
 				if(te0 != null && te0 instanceof TileEntityMachine){
 					return new ContainerMachine(player.inventory, (TileEntityMachine)te0);
@@ -37,6 +42,7 @@ public class GuiHandler implements IGuiHandler{
 				break;
 				
 			case CAKE_BOX:
+				
 				TileEntity te1 = world.getTileEntity(x, y, z);
 				if(te1 != null && te1 instanceof TileEntityCakeBox){
 					return new ContainerCakeBox(player.inventory, (TileEntityCakeBox)te1);
@@ -44,9 +50,18 @@ public class GuiHandler implements IGuiHandler{
 				break;
 				
 			case CAMO:
+				
 				TileEntity te2 = world.getTileEntity(x, y, z);
 				if(te2 != null && te2 instanceof TileEntityCamo){
 					return new ContainerCamo(player.inventory, (TileEntityCamo)te2);
+				}
+				break;	
+				
+			case MINE:
+				
+				TileEntity te3 = world.getTileEntity(x, y, z);
+				if(te3 != null && te3 instanceof TileEntityMine){
+					return new ContainerMine(player.inventory, (TileEntityMine)te3);
 				}
 				break;	
 				
@@ -81,6 +96,14 @@ public class GuiHandler implements IGuiHandler{
 				TileEntity te2 = world.getTileEntity(x, y, z);
 				if(te2 != null && te2 instanceof TileEntityCamo){
 					return new GuiCamo(player.inventory, (TileEntityCamo)te2);
+				}
+				break;
+				
+			case MINE:
+				
+				TileEntity te3 = world.getTileEntity(x, y, z);
+				if(te3 != null && te3 instanceof TileEntityMine){
+					return new GuiMine(player.inventory, (TileEntityMine)te3);
 				}
 				break;
 		}

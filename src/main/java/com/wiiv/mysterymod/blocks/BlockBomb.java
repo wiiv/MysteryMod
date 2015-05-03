@@ -42,8 +42,7 @@ public class BlockBomb extends BlockTileEntityMMGeneric {
 		for (int i = 0; i < activestateIcons.length; i++) {
 			activestateIcons[i] = register.registerIcon(BlocksMM.TEXTURE_LOCATION + ":" + BlocksMM.BOMB_TEXTURE + BlocksMM.BOMB_TEXTURE_STATES[1] + BlocksMM.BOMB_TEXTURE_ACTIVE_STAGES[i]);
 		}
-		idleIcon = register.registerIcon(BlocksMM.TEXTURE_LOCATION + ":"
-				+ BlocksMM.BOMB_TEXTURE + BlocksMM.BOMB_TEXTURE_STATES[0]);
+		idleIcon = register.registerIcon(BlocksMM.TEXTURE_LOCATION + ":" + BlocksMM.BOMB_TEXTURE + BlocksMM.BOMB_TEXTURE_STATES[0]);
 	}
 	
 	@Override

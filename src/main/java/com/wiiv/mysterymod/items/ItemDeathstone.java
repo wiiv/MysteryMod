@@ -2,12 +2,10 @@ package com.wiiv.mysterymod.items;
 
 import java.util.List;
 
-import com.wiiv.mysterymod.reference.ItemsMM;
-import com.wiiv.mysterymod.tabs.TabsMMGeneric;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityPigZombie;
@@ -17,6 +15,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+
+import com.wiiv.mysterymod.reference.ItemsMM;
+import com.wiiv.mysterymod.tabs.TabsMMGeneric;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 //import example.tabs.TabsWIIV;
@@ -31,17 +33,20 @@ public class ItemDeathstone extends ItemMMGeneric {
 		super();
 		
 		setCreativeTab(TabsMMGeneric.tabMiscellaneous);
+		setMaxStackSize(1);
 		setUnlocalizedName(ItemsMM.UNLOCALIZED_DEATHSTONE_NAME);
 		setHasSubtypes(true);
 		setMaxDamage(0);
 	}
 	
 	
+	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int par7, float par8, float par9, float par10)
     {
         return false;
     }
 	
+	@Override
 	public boolean hitEntity(ItemStack itemstack, EntityLivingBase target, EntityLivingBase targetEntity){
 		
 		int meta = itemstack.getItemDamage();
@@ -56,6 +61,8 @@ public class ItemDeathstone extends ItemMMGeneric {
 		}else if(target instanceof EntityPigZombie && meta == 3){ 
 			target.setHealth(0);
 		}else if(target instanceof EntitySkeleton && meta == 4){ 
+			target.setHealth(0);
+		}else if(target instanceof EntityBlaze && meta == 5){ 
 			target.setHealth(0);
 		}
 		itemstack.damageItem(1, targetEntity);
@@ -78,6 +85,8 @@ public class ItemDeathstone extends ItemMMGeneric {
 	        return getUnlocalizedName() + ItemsMM.UNLOCALIZED_DEATHSTONE_NAMES[3];
 	    case 4:
 	        return getUnlocalizedName() + ItemsMM.UNLOCALIZED_DEATHSTONE_NAMES[4];
+	    case 5:
+	        return getUnlocalizedName() + ItemsMM.UNLOCALIZED_DEATHSTONE_NAMES[5];
 	    default:
 	    	return ItemsMM.UNLOCALIZED_DEATHSTONE_NAME;
 		}
@@ -115,7 +124,7 @@ public class ItemDeathstone extends ItemMMGeneric {
 			
 			int dmg = itemstack.getItemDamage() + 1;
 			
-			if(dmg == 5) {
+			if(dmg > 5) {
 				itemstack.setItemDamage(0); 
 				world.playSoundAtEntity(entityplayer, "step.stone", 0.4F, 0.8F);
 			}else {
@@ -132,7 +141,7 @@ public class ItemDeathstone extends ItemMMGeneric {
 		
 		int dmg = itemstack.getItemDamage();
 		
-		if (dmg == 4) {
+		if (dmg == 5) {
 		info.add("To get " + ItemsMM.UNLOCALIZED_DEATHSTONE_NAMES[0] + "Death Stone");
 		info.add("place this in a crafting area.");
 		}else{

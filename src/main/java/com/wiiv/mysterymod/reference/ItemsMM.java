@@ -13,8 +13,8 @@ public class ItemsMM {
 	public static final String[] CARD_ICONS = { "card_blank", "card_arrow", "card_box", "card_cross", "card_custom" };
 	
 	public static final String UNLOCALIZED_DEATHSTONE_NAME = "deathStone";
-	public static final String[] UNLOCALIZED_DEATHSTONE_NAMES = { "Player", "Creeper", "Enderman", "ZombiePigman", "Skeleton" };
-	public static final String[] DEATHSTONE_ICONS = { "deathstone_player", "deathstone_creeper", "deathstone_enderman", "deathstone_pig", "deathstone_skeleton" };
+	public static final String[] UNLOCALIZED_DEATHSTONE_NAMES = { "Player", "Creeper", "Enderman", "ZombiePigman", "Skeleton", "Blaze" };
+	public static final String[] DEATHSTONE_ICONS = { "deathstone_player", "deathstone_creeper", "deathstone_enderman", "deathstone_pig", "deathstone_skeleton", "deathstone_blaze" };
 	
 	public static final String UNLOCALIZED_PRISM_NAME = "prism";
 	public static final String PRISM_ICON = "prism";

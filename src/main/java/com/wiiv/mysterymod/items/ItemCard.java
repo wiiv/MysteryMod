@@ -85,9 +85,7 @@ public class ItemCard extends ItemMMGeneric {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public boolean onItemUseFirst(ItemStack itemstack, EntityPlayer player,
-			World world, int x, int y, int z, int side, float hitX, float hitY,
-			float hitZ) {
+	public boolean onItemUseFirst(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
 	
 		if (!world.isRemote && world.getBlock(x, y, z) == BlocksMMInit.machine) {
 			int meta = world.getBlockMetadata(x, y, z);

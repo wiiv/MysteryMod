@@ -6,10 +6,12 @@ import java.util.List;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 
+import com.wiiv.mysterymod.init.BlocksMMInit;
 import com.wiiv.mysterymod.utility.Log;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
@@ -19,7 +21,7 @@ public class TileEntityMine extends TileEntityMMGeneric{
 	
 	private int timer = 80;
 	private ItemStack camoStack;//null may cause null pointer exception
-	
+
 	@Override
 	public void updateEntity(){
 		
@@ -30,6 +32,10 @@ public class TileEntityMine extends TileEntityMMGeneric{
 			if (timer == 80){
 				
 				worldObj.playSoundEffect(xCoord + 0.5, yCoord + 0.25, zCoord + 0.5, "game.tnt.primed", 1.0F, worldObj.rand.nextFloat() * 0.1F + 0.9F);
+				worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 0, 3);
+				
+			} else if (timer < 80){
+				worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, 1, 3);
 			}
 			
 			timer--;
@@ -40,6 +46,14 @@ public class TileEntityMine extends TileEntityMMGeneric{
 				worldObj.createExplosion(null, xCoord + 0.5, yCoord + 0.25, zCoord + 0.5, 3.0F, true);
 			}
 		}	
+	}
+	
+	public void setTimer(int value){
+		timer = value;
+	}
+	
+	public int getTimer(){
+		return timer;
 	}
 	
 	public void setCamouflage(ItemStack stack){
@@ -97,4 +111,140 @@ public class TileEntityMine extends TileEntityMMGeneric{
 			camoStack = null;
 		}
 	}
+	
+	@Override
+	public int getSizeInventory()
+    {
+        return 1;
+    }
+    
+	@Override
+	public ItemStack getStackInSlot(int slot)
+    {
+        return camoStack;
+    }
+	
+	/**
+     * Removes from an inventory slot (first arg) up to a specified number (second arg) of items and returns them in a
+     * new stack.
+     */
+    @Override
+	public ItemStack decrStackSize(int slot, int decreaseAmount)
+    {
+        if (camoStack != null)
+        {
+            ItemStack itemstack;
+
+            if (camoStack.stackSize <= decreaseAmount)
+            {
+                itemstack = camoStack;
+                setInventorySlotContents(slot, null);
+                this.markDirty();
+                return itemstack;
+            }
+            else
+            {
+                itemstack = camoStack.splitStack(decreaseAmount);
+
+                if (camoStack.stackSize == 0)
+                {
+                	setInventorySlotContents(slot, null);
+                }
+
+                this.markDirty();
+                return itemstack;
+            }
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    /**
+     * When some containers are closed they call this on each slot, then drop whatever it returns as an EntityItem -
+     * like when you close a workbench GUI.
+     */
+    @Override
+	public ItemStack getStackInSlotOnClosing(int slot) {
+    	
+        if (this.camoStack != null) {
+        	
+            ItemStack itemstack = this.camoStack;
+            this.camoStack = null;
+            return itemstack;
+            
+        }else {
+        	
+            return null;
+        }
+    }
+
+    /**
+     * Sets the given item stack to the specified slot in the inventory (can be crafting or armor sections).
+     */
+    @Override
+	public void setInventorySlotContents(int slot, ItemStack stack) {
+    	
+        this.camoStack = stack;
+
+        if (stack != null && stack.stackSize > this.getInventoryStackLimit())
+        {
+            stack.stackSize = this.getInventoryStackLimit();
+        }
+
+        this.markDirty();
+        worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+    }
+
+    /**
+     * Returns the name of the inventory
+     */
+    @Override
+	public String getInventoryName() {
+    	
+        return BlocksMMInit.mine.getUnlocalizedName() + ".name";
+    }
+
+    /**
+     * Returns if the inventory is named
+     */
+    @Override
+	public boolean hasCustomInventoryName() {
+    	
+        return false;
+    }
+
+    /**
+     * Returns the maximum stack size for a inventory slot.
+     */
+    @Override
+	public int getInventoryStackLimit() {
+    	
+        return 1;
+    }
+
+    /**
+     * Do not make give this method the name canInteractWith because it clashes with Container
+     */
+    @Override
+	public boolean isUseableByPlayer(EntityPlayer player) {
+    	
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : player.getDistanceSq(this.xCoord + 0.5D, this.yCoord + 0.5D, this.zCoord + 0.5D) <= 64.0D;
+    }
+
+    @Override
+	public void openInventory() {}
+
+    @Override
+	public void closeInventory() {}
+
+    /**
+     * Returns true if automation is allowed to insert the given stack (ignoring stack size) into the given slot.
+     */
+    @Override
+	public boolean isItemValidForSlot(int slot, ItemStack stack) {
+    	
+        return stack != null && stack.getItem() instanceof ItemBlock;
+    }
 }

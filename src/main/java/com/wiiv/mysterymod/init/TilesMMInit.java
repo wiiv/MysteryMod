@@ -26,6 +26,7 @@ public class TilesMMInit {
 		GameRegistry.registerTileEntity(TileEntityPump.class, BlocksMM.PUMP_TE_KEY);
 		GameRegistry.registerTileEntity(TileEntityCamo.class, BlocksMM.CAMO_TE_KEY);
 		GameRegistry.registerTileEntity(TileEntityCakeBox.class, BlocksMM.CAKEBOX_TE_KEY);
+		GameRegistry.registerTileEntity(TileEntityCakeBox.class, BlocksMM.URN_TE_KEY);
 	}
 
 }

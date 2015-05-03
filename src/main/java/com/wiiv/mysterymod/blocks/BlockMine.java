@@ -12,10 +12,13 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import com.wiiv.mysterymod.mysteryMod;
+import com.wiiv.mysterymod.handler.GuiHandler;
 import com.wiiv.mysterymod.reference.BlocksMM;
 import com.wiiv.mysterymod.tabs.TabsMMGeneric;
 import com.wiiv.mysterymod.tileentities.TileEntityMine;
 
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -36,6 +39,9 @@ public class BlockMine extends BlockTileEntityMMGeneric {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] mineIcons;
 	
+	@SideOnly(Side.CLIENT)
+	private IIcon[] stateIcons;
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register) {
@@ -43,6 +49,10 @@ public class BlockMine extends BlockTileEntityMMGeneric {
 		mineIcons = new IIcon[BlocksMM.MINE_TEXTURES.length];
 		for (int i = 0; i < mineIcons.length; i++) {
 			mineIcons[i] = register.registerIcon(BlocksMM.TEXTURE_LOCATION + ":" + BlocksMM.MINE_TEXTURES[i]);
+		}
+		stateIcons = new IIcon[BlocksMM.MINE_TEXTURE_STATES.length];
+		for (int i = 0; i < stateIcons.length; i++) {
+			stateIcons[i] = register.registerIcon(BlocksMM.TEXTURE_LOCATION + ":" + BlocksMM.MINE_TEXTURE_STATES[i]);
 		}
 	}
 	
@@ -53,11 +63,14 @@ public class BlockMine extends BlockTileEntityMMGeneric {
 		if (side == 0) {
 			return mineIcons[0];
 		}
-		else if (side == 1) {
-			return mineIcons[1];
+		else if (side == 1 && meta == 0) {
+			return stateIcons[0];
+			
+		}else if (side == 1 && meta == 1) {
+			return stateIcons[1];
 		}
 		else {
-			return mineIcons[2];
+			return mineIcons[1];
 		}
 	}
 	
@@ -86,26 +99,31 @@ public class BlockMine extends BlockTileEntityMMGeneric {
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		
 		if(!world.isRemote) {
-	
-			TileEntityMine TEMine = (TileEntityMine)world.getTileEntity(x, y, z);
-			
-			if(TEMine.getCamouflage() != null) {
-				
-				ItemStack camoStack = TEMine.getCamouflage();
-				TEMine.setCamouflage(null);
-				
-				EntityItem itemEntity = new EntityItem(world, x + 0.5F, y + 0.5F, z + 0.5F, camoStack);
-				world.spawnEntityInWorld(itemEntity);
-						
+			if(player.isSneaking()){
+
+				FMLNetworkHandler.openGui(player, mysteryMod.instance, GuiHandler.GuiID.MINE.ordinal(), world, x, y, z);
 			}else {
-			
-				ItemStack playerItem = player.getCurrentEquippedItem();
-				
-				if( playerItem != null) {
 	
-					ItemStack camoStack = playerItem.splitStack(1);
-					TEMine.setCamouflage(camoStack);
-				}
+				TileEntityMine TEMine = (TileEntityMine)world.getTileEntity(x, y, z);
+				
+				if(TEMine.getCamouflage() != null) {
+					
+					ItemStack camoStack = TEMine.getCamouflage();
+					TEMine.setCamouflage(null);
+					
+					EntityItem itemEntity = new EntityItem(world, x + 0.5F, y + 0.5F, z + 0.5F, camoStack);
+					world.spawnEntityInWorld(itemEntity);
+							
+				}else {
+				
+					ItemStack playerItem = player.getCurrentEquippedItem();
+					
+					if( playerItem != null) {
+		
+						ItemStack camoStack = playerItem.splitStack(1);
+						TEMine.setCamouflage(camoStack);
+					}
+				}	
 			}
 		}
 		
