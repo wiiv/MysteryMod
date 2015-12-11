@@ -1,4 +1,4 @@
-package com.wiiv.mysterymod.handler;
+package com.wiiv.mysterymod.network;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler.Sharable;

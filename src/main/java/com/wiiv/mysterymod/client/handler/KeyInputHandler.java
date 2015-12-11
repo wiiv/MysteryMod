@@ -1,7 +1,7 @@
 package com.wiiv.mysterymod.client.handler;
 
-import com.wiiv.mysterymod.handler.NetworkHandler;
 import com.wiiv.mysterymod.network.MessageExplode;
+import com.wiiv.mysterymod.network.NetworkHandler;
 import com.wiiv.mysterymod.reference.KeysMM;
 import com.wiiv.mysterymod.utility.Log;
 

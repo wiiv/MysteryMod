@@ -2,15 +2,15 @@ package com.wiiv.mysterymod;
 
 import com.wiiv.mysterymod.client.handler.KeyInputHandler;
 import com.wiiv.mysterymod.handler.ConfigurationHandler;
-import com.wiiv.mysterymod.handler.DescriptionHandler;
 import com.wiiv.mysterymod.handler.GenerationHandler;
 import com.wiiv.mysterymod.handler.GuiHandler;
-import com.wiiv.mysterymod.handler.NetworkHandler;
 import com.wiiv.mysterymod.init.BlocksMMInit;
 import com.wiiv.mysterymod.init.EntitiesMMInit;
 import com.wiiv.mysterymod.init.ItemsMMInit;
 import com.wiiv.mysterymod.init.RecipesMMInit;
 import com.wiiv.mysterymod.init.TilesMMInit;
+import com.wiiv.mysterymod.network.DescriptionHandler;
+import com.wiiv.mysterymod.network.NetworkHandler;
 import com.wiiv.mysterymod.proxy.CommonProxy;
 import com.wiiv.mysterymod.reference.CoreMM;
 
@@ -54,6 +54,7 @@ public class mysteryMod {
 		
 		proxy.initKeybindings();
 		proxy.initRenders();
+		proxy.initEntities();
 		
 		//gui
 		NetworkRegistry.INSTANCE.registerGuiHandler(CoreMM.MOD_ID, new GuiHandler());

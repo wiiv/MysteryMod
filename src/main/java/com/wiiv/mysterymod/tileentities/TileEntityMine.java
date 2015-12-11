@@ -12,7 +12,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 
 import com.wiiv.mysterymod.init.BlocksMMInit;
-import com.wiiv.mysterymod.utility.Log;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
 
@@ -20,14 +19,15 @@ import cpw.mods.fml.common.network.ByteBufUtils;
 public class TileEntityMine extends TileEntityMMGeneric{
 	
 	private int timer = 80;
+	private String target = "";
 	private ItemStack camoStack;//null may cause null pointer exception
-
+	
 	@Override
 	public void updateEntity(){
 		
 		List <Entity> entities = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord - 1, yCoord - 1, zCoord - 1, xCoord + 2, yCoord + 2, zCoord + 2));
 
-		if(entities.size() > 0 && !worldObj.isRemote){
+		if(timer > 0 && entities.size() > 0){
 			
 			if (timer == 80){
 				
@@ -39,23 +39,35 @@ public class TileEntityMine extends TileEntityMMGeneric{
 			}
 			
 			timer--;
-			Log.info(timer);
+			//Log.info(timer);
 			
-			if (timer == 0){
+			if (timer == 0 && !worldObj.isRemote){
 					
 				worldObj.createExplosion(null, xCoord + 0.5, yCoord + 0.25, zCoord + 0.5, 3.0F, true);
 			}
 		}	
 	}
 	
-	public void setTimer(int value){
-		timer = value;
-	}
-	
 	public int getTimer(){
 		return timer;
 	}
 	
+	public void setTimer(int value){
+		timer = value;
+		markDirty();
+	}
+	
+	public String getTarget() {
+	
+		return target;
+	}
+
+	public void setTarget(String target) {
+	
+		this.target = target;
+		markDirty();
+	}
+
 	public void setCamouflage(ItemStack stack){
 		camoStack = stack;
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
@@ -69,25 +81,16 @@ public class TileEntityMine extends TileEntityMMGeneric{
 	public void writeToPacket(ByteBuf buf) {
 		
 		ByteBufUtils.writeItemStack(buf, camoStack);
-		Log.info("writing to packet");
+		//Log.info("writing to packet");
 	}
 	
-	@Override
-	public void readFromPacket(ByteBuf buf) {
-		
-		camoStack = ByteBufUtils.readItemStack(buf);
-		Log.info("reading from packet");
-		
-		worldObj.markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord, xCoord, yCoord, zCoord);
-	}
-
 	@Override
 	public void writeToNBT(NBTTagCompound compound) {	
 		super.writeToNBT(compound);
 		
 		//
 		compound.setShort("Timer", (short)timer);
-	
+		compound.setString("Target", target);
 		//
 		if(camoStack != null) {
 			
@@ -98,17 +101,52 @@ public class TileEntityMine extends TileEntityMMGeneric{
 	}
 	
 	@Override
+	public void readFromPacket(ByteBuf buf) {
+		
+		camoStack = ByteBufUtils.readItemStack(buf);
+		//Log.info("reading from packet");
+		
+		worldObj.markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord, xCoord, yCoord, zCoord);
+	}
+	
+	@Override
 	public void readFromNBT(NBTTagCompound compound){	
 		super.readFromNBT(compound);
 		
 		//
 		timer = compound.getShort("Timer");
+		target = compound.getString("Target");
 		
 		//
 		if(compound.hasKey("camoStack")) {
 			camoStack = ItemStack.loadItemStackFromNBT(compound.getCompoundTag("camoStack"));
 		}else {
 			camoStack = null;
+		}
+	}
+	
+	@Override
+	public void onGuiButtonPressed(int id){
+		
+		if (id == 0){
+			
+			if(timer == -1){
+			
+			timer = 80;
+			
+			}else{
+				
+				timer = -1;
+			}
+		}
+	}
+	
+	@Override
+	public void onGuiTextfieldUpdate(int id, String text){
+		
+		if (id == 0){
+			target = text;
+			markDirty();
 		}
 	}
 	

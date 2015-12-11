@@ -23,6 +23,8 @@ public class BlockUrn extends BlockTileEntityMMGeneric {
 		setCreativeTab(TabsMMGeneric.tabBlocks);
 		setHardness(1F);
 		setStepSound(Block.soundTypeGlass);
+		
+		setBlockBounds(1.0F / 16.0F * 2.0F, 0.0F, 1.0F / 16.0F * 2.0F, 1.0F - (1.0F / 16.0F * 2.0F), 1.0F - (1.0F / 16.0F * 2.0F), 1.0F - (1.0F / 16.0F * 2.0F));
 	}
 	
 	@Override
@@ -54,5 +56,10 @@ public class BlockUrn extends BlockTileEntityMMGeneric {
 	public boolean renderAsNormalBlock() {
 	
 		return false;
+	}
+	
+	public TileEntity getBlockEntity() {
+		
+		return new TileEntityUrn();
 	}
 }

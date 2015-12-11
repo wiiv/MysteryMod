@@ -1,6 +1,7 @@
 package com.wiiv.mysterymod.proxy;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
@@ -9,6 +10,7 @@ import com.wiiv.mysterymod.client.model.ModelDroid;
 import com.wiiv.mysterymod.client.renderer.block.RenderBlockMachine;
 import com.wiiv.mysterymod.client.renderer.entity.RenderBomb;
 import com.wiiv.mysterymod.client.renderer.entity.RenderDroid;
+import com.wiiv.mysterymod.client.renderer.entity.RenderMobTest;
 import com.wiiv.mysterymod.client.renderer.entity.RenderSpaceship;
 import com.wiiv.mysterymod.client.renderer.item.RenderItemDroid;
 import com.wiiv.mysterymod.client.renderer.itemblocks.RenderItemBlockAlembic;
@@ -19,6 +21,7 @@ import com.wiiv.mysterymod.client.renderer.tileentity.RenderPumpTileEntity;
 import com.wiiv.mysterymod.client.renderer.tileentity.RenderUrnTileEntity;
 import com.wiiv.mysterymod.entity.EntityBomb;
 import com.wiiv.mysterymod.entity.EntityDroid;
+import com.wiiv.mysterymod.entity.EntityMobTest;
 import com.wiiv.mysterymod.entity.EntitySpaceship;
 import com.wiiv.mysterymod.init.BlocksMMInit;
 import com.wiiv.mysterymod.init.ItemsMMInit;
@@ -33,10 +36,11 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy{
-
+	
 	@Override
 	public void initRenders() {
 		
+		//spaceship entity
 		RenderingRegistry.registerEntityRenderingHandler(EntitySpaceship.class, new RenderSpaceship());
 		
 		ModelDroid model = new ModelDroid();
@@ -71,6 +75,9 @@ public class ClientProxy extends CommonProxy{
 		RenderUrnTileEntity urnRender =  new RenderUrnTileEntity();
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityUrn.class, urnRender);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(BlocksMMInit.urn), new RenderItemBlockAlembic(urnRender, new TileEntityUrn()));
+		
+		//mobtest entity
+		RenderingRegistry.registerEntityRenderingHandler(EntityMobTest.class, new RenderMobTest(new ModelBiped(), 1));
 	}
 
 	@Override

@@ -99,6 +99,7 @@ public class ContainerMachine extends ContainerMMGeneric{
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void updateProgressBar(int id, int data) {
+		super.updateProgressBar(id, data);
 		
 		if (id < machine.customSetup.length) {
 			

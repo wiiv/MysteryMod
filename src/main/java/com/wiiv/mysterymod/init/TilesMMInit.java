@@ -10,6 +10,7 @@ import com.wiiv.mysterymod.tileentities.TileEntityMachine;
 import com.wiiv.mysterymod.tileentities.TileEntityMine;
 import com.wiiv.mysterymod.tileentities.TileEntityPump;
 import com.wiiv.mysterymod.tileentities.TileEntityRotational;
+import com.wiiv.mysterymod.tileentities.TileEntityUrn;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -26,7 +27,7 @@ public class TilesMMInit {
 		GameRegistry.registerTileEntity(TileEntityPump.class, BlocksMM.PUMP_TE_KEY);
 		GameRegistry.registerTileEntity(TileEntityCamo.class, BlocksMM.CAMO_TE_KEY);
 		GameRegistry.registerTileEntity(TileEntityCakeBox.class, BlocksMM.CAKEBOX_TE_KEY);
-		GameRegistry.registerTileEntity(TileEntityCakeBox.class, BlocksMM.URN_TE_KEY);
+		GameRegistry.registerTileEntity(TileEntityUrn.class, BlocksMM.URN_TE_KEY);
 	}
 
 }

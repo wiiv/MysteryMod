@@ -3,12 +3,15 @@ package com.wiiv.mysterymod.client.gui.container;
 import java.util.List;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 import com.wiiv.mysterymod.client.gui.slot.SlotItemBlock;
+import com.wiiv.mysterymod.network.MessageHandleTextUpdate;
+import com.wiiv.mysterymod.network.NetworkHandler;
 import com.wiiv.mysterymod.tileentities.TileEntityMine;
 
 import cpw.mods.fml.relauncher.Side;
@@ -18,6 +21,7 @@ public class ContainerMine extends ContainerMMGeneric{
 	
 	private TileEntityMine mine;
 	private int lastTimer = -1;
+	private String lastTarget = "";
 	
 	public ContainerMine(InventoryPlayer playerInv, TileEntityMine mine) {
 		this.mine = mine;
@@ -95,20 +99,32 @@ public class ContainerMine extends ContainerMMGeneric{
 			mine.setTimer(value);
 		}
 	}
-
+	
 	@Override
 	public void detectAndSendChanges() {
 		super.detectAndSendChanges();
 		
-		if(lastTimer != mine.getTimer()){
+		if(lastTimer != mine.getTimer()) {
 			
-			for(ICrafting crafter : (List<ICrafting>) crafters) {
-				
-				crafter.sendProgressBarUpdate(this, 0, mine.getTimer());
-			}
+            for(ICrafting crafter : (List<ICrafting>)crafters) {
+            	
+                crafter.sendProgressBarUpdate(this, 0, mine.getTimer());
+            }
+            
+            lastTimer = mine.getTimer();
+        }
+		
+		if(!lastTarget.equals(mine.getTarget())) {
 			
-			lastTimer = mine.getTimer();
-		}
+            for(ICrafting crafter : (List<ICrafting>)crafters) {
+            	
+            	if(crafter instanceof EntityPlayerMP){
+            		NetworkHandler.sendTo(new MessageHandleTextUpdate(mine, 0, mine.getTarget()), (EntityPlayerMP) crafter);
+            	}
+            }
+            
+            lastTarget = mine.getTarget();
+        }
 	}
 	
 }

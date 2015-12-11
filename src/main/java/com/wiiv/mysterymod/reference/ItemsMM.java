@@ -36,4 +36,7 @@ public class ItemsMM {
 	
 	public static final String UNLOCALIZED_CREEPERGOO_NAME = "creeperGoo";
 	public static final String CREEPERGOO_ICON = "creeper_goo";
+	
+	public static final String UNLOCALIZED_SPAWNER_NAME = "spawner";
+	public static final String SPAWNER_ICON = "spawner";
 }

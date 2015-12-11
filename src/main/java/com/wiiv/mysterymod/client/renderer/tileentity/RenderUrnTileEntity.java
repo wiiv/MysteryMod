@@ -6,16 +6,16 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.wiiv.mysterymod.client.model.ModelAlembic;
+import com.wiiv.mysterymod.client.model.ModelUrn;
 
 public class RenderUrnTileEntity extends TileEntitySpecialRenderer{
 
-	public static final ResourceLocation texture = new ResourceLocation("mm", "textures/models/alembic.png");
+	public static final ResourceLocation texture = new ResourceLocation("mm", "textures/models/urn.png");
 	
-	private ModelAlembic model;
+	private ModelUrn model;
 	
 	public RenderUrnTileEntity() {
-		this.model = new ModelAlembic();
+		this.model = new ModelUrn();
 	}
 	
 	@Override

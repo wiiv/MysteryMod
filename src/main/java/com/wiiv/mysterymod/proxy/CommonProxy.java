@@ -8,6 +8,10 @@ public abstract class CommonProxy {
 		
 	}
 	
+	public void initEntities(){
+		
+	}
+	
 	public void initKeybindings() {
 
 	}

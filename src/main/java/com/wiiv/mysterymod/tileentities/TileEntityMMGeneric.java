@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 
-import com.wiiv.mysterymod.handler.DescriptionHandler;
+import com.wiiv.mysterymod.network.DescriptionHandler;
 
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 
@@ -29,13 +29,13 @@ public class TileEntityMMGeneric extends TileEntity implements IInventory{
 		return new FMLProxyPacket(buf, DescriptionHandler.CHANNEL);
 	}
 	
-	public void writeToPacket(ByteBuf buf) {
-		
-	}
+	public void writeToPacket(ByteBuf buf) {}
 
-	public void readFromPacket(ByteBuf buf) {
-
-	}
+	public void readFromPacket(ByteBuf buf) {}
+	
+	public void onGuiButtonPressed(int id){}
+	
+	public void onGuiTextfieldUpdate(int id, String text){}
 
 	@Override
 	public int getSizeInventory() {

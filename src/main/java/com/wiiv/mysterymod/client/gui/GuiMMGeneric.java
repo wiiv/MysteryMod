@@ -10,4 +10,7 @@ public abstract class GuiMMGeneric extends GuiContainer{
 		super(container);
 
 	}
+	
+	public void onTextfieldUpdate(int id){}
+
 }

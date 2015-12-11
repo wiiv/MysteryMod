@@ -16,6 +16,8 @@ item.mystery:prism.name=Prism
 item.mystery:propellerWand.name=Propeller Wand
 item.mystery:handblaster.name=Handblaster
 item.mystery:droid.name=Droid
+item.mystery:creeperGoo.name=Creeper Goo
+item.mystery:spawner.name=Mob Spawner
 
 item.mystery:symbolCardBlank.name=Blank Card
 item.mystery:symbolCardArrow.name=Arrow Card
@@ -45,7 +47,14 @@ key.mystery.explode=Explode
 
 -WEIRD MACHINE
 
+gui.mm.machine.name=Anvil Machine
+gui.mm.machine.button.clear=Clear
+
 -MINE
+
+gui.mm.mine.timer=TIMER: %s ticks
+gui.mm.mine.button.reset=RESET
+gui.mm.mine.button.restart=RESTART
 
 -CAMO
 

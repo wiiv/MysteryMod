@@ -8,6 +8,7 @@ import com.wiiv.mysterymod.items.ItemHandBlaster;
 import com.wiiv.mysterymod.items.ItemMMGeneric;
 import com.wiiv.mysterymod.items.ItemPrism;
 import com.wiiv.mysterymod.items.ItemSalt;
+import com.wiiv.mysterymod.items.ItemSpawner;
 import com.wiiv.mysterymod.items.ItemWand;
 import com.wiiv.mysterymod.reference.ItemsMM;
 
@@ -23,6 +24,7 @@ public class ItemsMMInit {
 	public static ItemMMGeneric handblaster = new ItemHandBlaster();
 	public static ItemMMGeneric salt = new ItemSalt();
 	public static ItemMMGeneric creeperGoo = new ItemCreeperGoo();
+	public static ItemMMGeneric spawner = new ItemSpawner();
 	
 	public static void init(){
 
@@ -34,5 +36,6 @@ public class ItemsMMInit {
 		GameRegistry.registerItem(handblaster, ItemsMM.UNLOCALIZED_HANDBLASTER_NAME);
 		GameRegistry.registerItem(salt, ItemsMM.UNLOCALIZED_SALT_NAME);
 		GameRegistry.registerItem(creeperGoo, ItemsMM.UNLOCALIZED_CREEPERGOO_NAME);
+		GameRegistry.registerItem(spawner, ItemsMM.UNLOCALIZED_SPAWNER_NAME);
 	}
 }

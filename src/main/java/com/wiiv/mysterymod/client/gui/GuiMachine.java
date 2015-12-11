@@ -7,6 +7,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
@@ -121,8 +122,9 @@ public class GuiMachine extends GuiContainer{
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y) {
+		super.drawGuiContainerForegroundLayer(x, y);
 		
-		fontRendererObj.drawString("Silly Machine", 7, 6, 0x404040);
+		fontRendererObj.drawString(I18n.format("gui.mm.machine.name"), 7, 6, 0x404040);
 		
 		int meta = machine.getWorldObj().getBlockMetadata(machine.xCoord, machine.yCoord, machine.zCoord);
 		int type =  meta / 2;
@@ -199,9 +201,11 @@ public class GuiMachine extends GuiContainer{
 		super.initGui();
 		
 		buttonList.clear();
-		buttonList.add(new GuiButton(0, guiLeft + 85, guiTop + 16, 47, 20, machine.getBlockMetadata() % 2 == 0 ? DISABLE_TEXT : ENABLE_TEXT));
 		
-		GuiButton clearButton = new GuiButton(1, guiLeft + 133, guiTop + 16, 36, 20, "Clear");
+		GuiButton enableButton = new GuiButton(0, guiLeft + 85, guiTop + 16, 47, 20, machine.getBlockMetadata() % 2 == 0 ? DISABLE_TEXT : ENABLE_TEXT);
+		buttonList.add(enableButton);
+		
+		GuiButton clearButton = new GuiButton(1, guiLeft + 133, guiTop + 16, 36, 20, I18n.format("gui.mm.machine.button.clear"));
 		
 		clearButton.enabled = machine.getBlockMetadata() / 2 != 0;
 		
